@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benck. Brand Guidelines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --benck-green: #6de067;
+            --benck-dark-green: #5bc952;
+            --benck-light-green: #e8fae7;
+            --black: #000000;
+            --white: #FFFFFF;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--benck-green);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-logo {
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--black);
+            letter-spacing: -2px;
+        }
+
+        .header-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--black);
+            margin-top: 16px;
+            opacity: 0.8;
+        }
+
+        .header-meta {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--black);
+            opacity: 0.6;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: var(--black);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav a:hover {
+            background-color: var(--benck-green);
+            color: var(--black);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-number {
+            display: inline-block;
+            background-color: var(--benck-green);
+            color: var(--black);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 32px;
+            letter-spacing: -1px;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--black);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--medium-gray);
+            margin-bottom: 16px;
+        }
+
+        .lead {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background-color: var(--benck-light-green);
+            border-left: 4px solid var(--benck-green);
+            padding: 24px 32px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            color: var(--dark-gray);
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .highlight-box.dark {
+            background-color: var(--black);
+            border-left-color: var(--benck-green);
+        }
+
+        .highlight-box.dark p {
+            color: var(--white);
+        }
+
+        /* Quote */
+        blockquote {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--black);
+            border-left: 4px solid var(--benck-green);
+            padding-left: 24px;
+            margin: 32px 0;
+            line-height: 1.4;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            color: var(--medium-gray);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        li strong {
+            color: var(--dark-gray);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: var(--black);
+            color: var(--white);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px 20px;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        tr:hover td {
+            background-color: var(--benck-light-green);
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .color-swatch {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .color-swatch-preview {
+            height: 120px;
+        }
+
+        .color-swatch-info {
+            background-color: var(--white);
+            padding: 16px;
+        }
+
+        .color-swatch-name {
+            font-weight: 600;
+            color: var(--black);
+            font-size: 14px;
+        }
+
+        .color-swatch-hex {
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--medium-gray);
+            margin-top: 4px;
+        }
+
+        .color-swatch-usage {
+            font-size: 12px;
+            color: var(--medium-gray);
+            margin-top: 8px;
+        }
+
+        /* Logo Display */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .logo-box {
+            border-radius: 12px;
+            padding: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .logo-box span {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo-label {
+            text-align: center;
+            font-size: 13px;
+            color: var(--medium-gray);
+            margin-top: 12px;
+        }
+
+        /* Typography Display */
+        .type-sample {
+            margin: 32px 0;
+            padding: 32px;
+            background-color: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .type-h1 {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .type-h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .type-h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .type-body {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+        }
+
+        .type-caption {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--medium-gray);
+        }
+
+        .type-meta {
+            font-size: 12px;
+            color: var(--medium-gray);
+            margin-top: 8px;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--benck-green);
+            box-shadow: 0 8px 30px rgba(109, 224, 103, 0.15);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--benck-light-green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Do's and Don'ts */
+        .dos-donts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        .dos, .donts {
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .dos {
+            background-color: var(--benck-light-green);
+        }
+
+        .donts {
+            background-color: #fff0f0;
+        }
+
+        .dos h4, .donts h4 {
+            margin-top: 0;
+        }
+
+        .dos li {
+            color: var(--dark-gray);
+        }
+
+        .donts li {
+            color: #c53030;
+        }
+
+        /* Tagline Display */
+        .tagline-display {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 64px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .tagline-display .tagline {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--benck-green);
+            letter-spacing: -1px;
+        }
+
+        .tagline-display .tagline-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--medium-gray);
+            margin-bottom: 16px;
+        }
+
+        /* Alternative taglines */
+        .alt-taglines {
+            margin: 32px 0;
+        }
+
+        .alt-tagline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .alt-tagline-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .alt-tagline-emphasis {
+            font-size: 13px;
+            color: var(--medium-gray);
+        }
+
+        /* Voice characteristics */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .voice-item {
+            text-align: center;
+            padding: 32px 16px;
+            background-color: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .voice-item strong {
+            display: block;
+            font-size: 16px;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .voice-item span {
+            font-size: 13px;
+            color: var(--medium-gray);
+        }
+
+        /* Quick Reference */
+        .quick-ref {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 48px;
+            border-radius: 16px;
+            margin: 32px 0;
+        }
+
+        .quick-ref h3 {
+            color: var(--benck-green);
+            margin-top: 0;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .quick-ref-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .quick-ref-label {
+            font-size: 12px;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .quick-ref-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .quick-ref-value.green {
+            color: var(--benck-green);
+        }
+
+        /* Color codes block */
+        .code-block {
+            background-color: var(--dark-gray);
+            color: var(--benck-green);
+            padding: 24px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        .code-block code {
+            display: block;
+            line-height: 2;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--benck-green);
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 24px;
+        }
+
+        .footer-links a {
+            color: var(--benck-green);
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Pill tags */
+        .pill {
+            display: inline-block;
+            background-color: var(--benck-light-green);
+            color: var(--benck-dark-green);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--benck-green), transparent);
+            border: none;
+            margin: 48px 0;
+        }
+
+        /* Accessibility table special styling */
+        .accessibility-check {
+            color: var(--benck-dark-green);
+            font-weight: 600;
+        }
+
+        /* Social content pillars */
+        .pillar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 24px;
+            background-color: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .pillar-percent {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--benck-green);
+            min-width: 80px;
+        }
+
+        .pillar-content h4 {
+            margin: 0 0 8px 0;
+        }
+
+        .pillar-content ul {
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header-logo {
+                font-size: 48px;
+            }
+
+            .header-subtitle {
+                font-size: 18px;
+            }
+
+            .nav {
+                padding: 16px 20px;
+            }
+
+            .nav a {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .main {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 48px 0;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dos-donts {
+                grid-template-columns: 1fr;
+            }
+
+            .tagline-display {
+                padding: 40px 24px;
+            }
+
+            .tagline-display .tagline {
+                font-size: 32px;
+            }
+
+            blockquote {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-logo">Benck.</div>
+        <div class="header-subtitle">Brand Guidelines</div>
+        <div class="header-meta">Version 1.0 &nbsp;|&nbsp; December 2025</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#overview">Overview</a>
+            <a href="#story">Story</a>
+            <a href="#mission">Mission</a>
+            <a href="#audience">Audience</a>
+            <a href="#voice">Voice & Tone</a>
+            <a href="#visual">Visual Identity</a>
+            <a href="#logo">Logo</a>
+            <a href="#typography">Typography</a>
+            <a href="#colors">Colors</a>
+            <a href="#tagline">Tagline</a>
+            <a href="#messaging">Messaging</a>
+            <a href="#social">Social Media</a>
+            <a href="#dos-donts">Do's & Don'ts</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Brand Overview -->
+        <section id="overview" class="section">
+            <span class="section-number">01</span>
+            <h2>Brand Overview</h2>
+            <p class="lead"><strong>Benck</strong> is a technology company that specializes in creating fully customized CRM and ERP solutions for small and medium-sized businesses. Unlike generic, one-size-fits-all software, Benck builds applications tailored to each client's unique workflows, processes, and needs.</p>
+
+            <h3>What We Do</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">&#128736;</div>
+                    <h4>Custom CRM Development</h4>
+                    <p>Build customer relationship management systems tailored to your specific sales processes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#9881;</div>
+                    <h4>Custom ERP Solutions</h4>
+                    <p>Enterprise resource planning that fits how your business actually operates.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#9889;</div>
+                    <h4>Business Process Automation</h4>
+                    <p>Eliminate manual work and automate repetitive tasks across your organization.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128257;</div>
+                    <h4>Workflow Optimization</h4>
+                    <p>Streamline internal processes for maximum efficiency and clarity.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box dark">
+                <p><strong>Our Promise:</strong> We don't force your business to adapt to software—we build software that adapts to your business.</p>
+            </div>
+        </section>
+
+        <!-- Brand Story -->
+        <section id="story" class="section">
+            <span class="section-number">02</span>
+            <h2>Brand Story</h2>
+            <p class="lead">The name <strong>Benck</strong> has a personal origin. It comes from the names of the founders' two dogs: <strong>Zack</strong> and <strong>Bento</strong>.</p>
+
+            <p>This might seem unconventional for a tech company, but it reflects something important about who we are: we're real people who care about the things (and beings) that matter to us.</p>
+
+            <p>This personal touch extends to how we work with clients. We're not a faceless corporation. We're a team that takes the time to understand your business, your challenges, and your goals—just like we take the time to understand what makes Zack and Bento happy.</p>
+
+            <div class="highlight-box">
+                <p>The period in <strong>Benck.</strong> represents completeness and confidence. It's a statement, not a question. When you work with Benck, you get a complete solution.</p>
+            </div>
+        </section>
+
+        <!-- Mission, Vision & Values -->
+        <section id="mission" class="section">
+            <span class="section-number">03</span>
+            <h2>Mission, Vision & Values</h2>
+
+            <h3>Mission</h3>
+            <blockquote>To empower small and medium-sized businesses with custom software solutions that simplify operations, accelerate growth, and eliminate the frustration of working around generic tools.</blockquote>
+
+            <h3>Vision</h3>
+            <p class="lead">To become the go-to partner for businesses that have outgrown spreadsheets and generic software but aren't ready for enterprise-level complexity and cost.</p>
+
+            <h3>Core Values</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Customization First</strong></td>
+                            <td>Every business is unique. Your software should be too.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Approachability</strong></td>
+                            <td>Technology should be accessible, not intimidating. We speak your language, not jargon.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reliability</strong></td>
+                            <td>Your business depends on us. We take that responsibility seriously.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Partnership</strong></td>
+                            <td>We're not just vendors—we're partners invested in your success.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simplicity</strong></td>
+                            <td>Complex problems deserve elegant, simple solutions.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Target Audience -->
+        <section id="audience" class="section">
+            <span class="section-number">04</span>
+            <h2>Target Audience</h2>
+
+            <h3>Primary Audience</h3>
+            <p class="lead">Small to medium-sized businesses with <strong>10 to 200 employees</strong> across any industry that:</p>
+            <ul>
+                <li>Have outgrown spreadsheets and basic tools</li>
+                <li>Find generic CRM/ERP solutions too rigid or bloated</li>
+                <li>Need software that matches their specific workflows</li>
+                <li>Value personalized support over ticket queues</li>
+                <li>Want a partner, not just a provider</li>
+            </ul>
+
+            <h3>Industry Examples</h3>
+            <p>
+                <span class="pill">Professional Services</span>
+                <span class="pill">Retail & E-commerce</span>
+                <span class="pill">Manufacturing</span>
+                <span class="pill">Healthcare</span>
+                <span class="pill">Construction</span>
+                <span class="pill">Hospitality</span>
+                <span class="pill">Real Estate</span>
+            </p>
+
+            <h3>Pain Points We Solve</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <p><strong>"We're using 5 different tools that don't talk to each other"</strong></p>
+                </div>
+                <div class="card">
+                    <p><strong>"Our CRM doesn't fit how we actually work"</strong></p>
+                </div>
+                <div class="card">
+                    <p><strong>"We spend hours on manual data entry"</strong></p>
+                </div>
+                <div class="card">
+                    <p><strong>"We can't get the reports we need"</strong></p>
+                </div>
+                <div class="card">
+                    <p><strong>"Generic software support doesn't understand our business"</strong></p>
+                </div>
+                <div class="card">
+                    <p><strong>"We're paying for features we don't use"</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Voice & Tone -->
+        <section id="voice" class="section">
+            <span class="section-number">05</span>
+            <h2>Brand Voice & Tone</h2>
+
+            <h3>Voice Characteristics</h3>
+            <p>Our brand voice is consistent across all communications:</p>
+
+            <div class="voice-grid">
+                <div class="voice-item">
+                    <strong>Professional</strong>
+                    <span>We know our craft</span>
+                </div>
+                <div class="voice-item">
+                    <strong>Friendly</strong>
+                    <span>Never cold or corporate</span>
+                </div>
+                <div class="voice-item">
+                    <strong>Innovative</strong>
+                    <span>Forward-thinking</span>
+                </div>
+                <div class="voice-item">
+                    <strong>Clear</strong>
+                    <span>No jargon</span>
+                </div>
+                <div class="voice-item">
+                    <strong>Confident</strong>
+                    <span>Without arrogance</span>
+                </div>
+            </div>
+
+            <h3>Tone Adjustments by Context</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Context</th>
+                            <th>Tone Adjustment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Website copy</td>
+                            <td>Confident, inspiring, benefit-focused</td>
+                        </tr>
+                        <tr>
+                            <td>Social media</td>
+                            <td>Friendly, conversational, engaging</td>
+                        </tr>
+                        <tr>
+                            <td>Client proposals</td>
+                            <td>Professional, thorough, reassuring</td>
+                        </tr>
+                        <tr>
+                            <td>Support communications</td>
+                            <td>Warm, patient, solution-oriented</td>
+                        </tr>
+                        <tr>
+                            <td>Technical documentation</td>
+                            <td>Clear, precise, helpful</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Writing Guidelines</h3>
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Use active voice</li>
+                        <li>Address the reader directly</li>
+                        <li>Keep sentences concise</li>
+                        <li>Lead with benefits, follow with features</li>
+                        <li>Use real-world examples</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Use excessive technical jargon</li>
+                        <li>Sound robotic or overly formal</li>
+                        <li>Make promises you can't keep</li>
+                        <li>Use buzzwords without substance</li>
+                        <li>Talk down to the reader</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Identity -->
+        <section id="visual" class="section">
+            <span class="section-number">06</span>
+            <h2>Visual Identity</h2>
+
+            <h3>Design Philosophy</h3>
+            <p class="lead">Benck's visual identity reflects our modern, innovative approach while maintaining professionalism. We combine clean minimalism with strategic use of our vibrant primary color to create a distinctive, memorable brand presence.</p>
+
+            <h3>Key Principles</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Clean Layouts</h4>
+                    <p>Uncluttered designs that let content breathe</p>
+                </div>
+                <div class="card">
+                    <h4>Bold Typography</h4>
+                    <p>Headlines that command attention</p>
+                </div>
+                <div class="card">
+                    <h4>Strategic Color</h4>
+                    <p>Green used for emphasis, not everywhere</p>
+                </div>
+                <div class="card">
+                    <h4>White Space</h4>
+                    <p>Generous breathing room in all designs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logo Usage -->
+        <section id="logo" class="section">
+            <span class="section-number">07</span>
+            <h2>Logo Usage</h2>
+
+            <h3>Primary Logo</h3>
+            <p>The Benck logo is a wordmark: <strong>Benck.</strong> rendered in bold black typography on the primary green background.</p>
+
+            <h3>Logo Variations</h3>
+            <div class="logo-grid">
+                <div>
+                    <div class="logo-box" style="background-color: var(--benck-green);">
+                        <span style="color: var(--black);">Benck.</span>
+                    </div>
+                    <p class="logo-label">Primary — Black on Green</p>
+                </div>
+                <div>
+                    <div class="logo-box" style="background-color: var(--black);">
+                        <span style="color: var(--benck-green);">Benck.</span>
+                    </div>
+                    <p class="logo-label">Inverted — Green on Black</p>
+                </div>
+                <div>
+                    <div class="logo-box" style="background-color: var(--white); border: 1px solid var(--light-gray);">
+                        <span style="color: var(--black);">Benck.</span>
+                    </div>
+                    <p class="logo-label">Monochrome Light — Black on White</p>
+                </div>
+                <div>
+                    <div class="logo-box" style="background-color: var(--black);">
+                        <span style="color: var(--white);">Benck.</span>
+                    </div>
+                    <p class="logo-label">Monochrome Dark — White on Black</p>
+                </div>
+            </div>
+
+            <h3>Logo Guidelines</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Clear Space</td>
+                            <td>Height of the letter "B" on all sides</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Size (Digital)</td>
+                            <td>80px width</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Size (Print)</td>
+                            <td>20mm width</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Logo Don'ts</h3>
+            <ul>
+                <li>Don't stretch or distort the logo</li>
+                <li>Don't change the logo colors outside approved variations</li>
+                <li>Don't add effects (shadows, gradients, outlines)</li>
+                <li>Don't place the logo on busy backgrounds</li>
+                <li>Don't remove the period from "Benck."</li>
+                <li>Don't rotate the logo</li>
+            </ul>
+        </section>
+
+        <!-- Typography -->
+        <section id="typography" class="section">
+            <span class="section-number">08</span>
+            <h2>Typography</h2>
+
+            <h3>Primary Typeface: Inter</h3>
+            <p><strong>Inter</strong> is our primary typeface. It's modern, highly legible, and works excellently across digital and print applications. It's also free and widely available.</p>
+            <p><strong>Alternatives:</strong> If Inter is unavailable, use <strong>Poppins</strong> or <strong>Montserrat</strong>.</p>
+
+            <h3>Type Samples</h3>
+            <div class="type-sample">
+                <div class="type-h1">H1 — Headlines</div>
+                <div class="type-meta">Inter Bold (700) · 48-64px</div>
+
+                <div class="type-h2" style="margin-top: 24px;">H2 — Section Headers</div>
+                <div class="type-meta">Inter Bold (700) · 32-40px</div>
+
+                <div class="type-h3" style="margin-top: 24px;">H3 — Subsections</div>
+                <div class="type-meta">Inter SemiBold (600) · 24-28px</div>
+
+                <div class="type-body" style="margin-top: 24px;">Body Text — The quick brown fox jumps over the lazy dog. Benck builds custom software for businesses that need more than generic solutions.</div>
+                <div class="type-meta">Inter Regular (400) · 16-18px</div>
+
+                <div class="type-caption" style="margin-top: 24px;">Captions and small text for supporting information</div>
+                <div class="type-meta">Inter Regular (400) · 14px</div>
+            </div>
+
+            <h3>Typography Guidelines</h3>
+            <ul>
+                <li>Use <strong>bold weights</strong> for headlines to create impact</li>
+                <li>Maintain comfortable line heights (1.5 for body text)</li>
+                <li>Left-align body text; center headlines sparingly</li>
+                <li>Use sentence case for headlines ("Build your perfect CRM")</li>
+                <li>Avoid all caps except for small labels or buttons</li>
+            </ul>
+        </section>
+
+        <!-- Color Palette -->
+        <section id="colors" class="section">
+            <span class="section-number">09</span>
+            <h2>Color Palette</h2>
+
+            <h3>Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #6de067;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Benck Green</div>
+                        <div class="color-swatch-hex">#6de067 · rgb(109, 224, 103)</div>
+                        <div class="color-swatch-usage">Primary brand color, CTAs, accents</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #000000;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Black</div>
+                        <div class="color-swatch-hex">#000000 · rgb(0, 0, 0)</div>
+                        <div class="color-swatch-usage">Text, logo, strong contrasts</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #FFFFFF; border: 1px solid #eee;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">White</div>
+                        <div class="color-swatch-hex">#FFFFFF · rgb(255, 255, 255)</div>
+                        <div class="color-swatch-usage">Backgrounds, text on dark</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Extended Palette</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #5bc952;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Dark Green</div>
+                        <div class="color-swatch-hex">#5bc952</div>
+                        <div class="color-swatch-usage">Hover states, depth</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #e8fae7;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Light Green</div>
+                        <div class="color-swatch-hex">#e8fae7</div>
+                        <div class="color-swatch-usage">Subtle backgrounds, highlights</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #1a1a1a;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Dark Gray</div>
+                        <div class="color-swatch-hex">#1a1a1a</div>
+                        <div class="color-swatch-usage">Alternative to pure black</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #666666;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Medium Gray</div>
+                        <div class="color-swatch-hex">#666666</div>
+                        <div class="color-swatch-usage">Secondary text</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background-color: #f5f5f5;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Light Gray</div>
+                        <div class="color-swatch-hex">#f5f5f5</div>
+                        <div class="color-swatch-usage">Background sections</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Color Usage Guidelines</h3>
+            <div class="highlight-box">
+                <p><strong>Benck Green</strong> should be used strategically—not everywhere. It's for emphasis, CTAs, and brand moments. Use black and white as the foundation; green as the accent.</p>
+            </div>
+
+            <h3>Color Accessibility</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Combination</th>
+                            <th>Contrast Ratio</th>
+                            <th>WCAG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Black on White</td>
+                            <td>21:1</td>
+                            <td class="accessibility-check">AAA &#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Black on Benck Green</td>
+                            <td>10.4:1</td>
+                            <td class="accessibility-check">AAA &#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>White on Black</td>
+                            <td>21:1</td>
+                            <td class="accessibility-check">AAA &#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Benck Green on Black</td>
+                            <td>10.4:1</td>
+                            <td class="accessibility-check">AAA &#10003;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Quick Copy Color Codes</h3>
+            <div class="code-block">
+                <code>Primary Green: #6de067 | rgb(109, 224, 103)</code>
+                <code>Black: #000000 | rgb(0, 0, 0)</code>
+                <code>White: #FFFFFF | rgb(255, 255, 255)</code>
+                <code>Dark Green: #5bc952 | rgb(91, 201, 82)</code>
+                <code>Light Green: #e8fae7 | rgb(232, 250, 231)</code>
+            </div>
+        </section>
+
+        <!-- Tagline Options -->
+        <section id="tagline" class="section">
+            <span class="section-number">10</span>
+            <h2>Tagline Options</h2>
+
+            <h3>Primary Recommendation</h3>
+            <div class="tagline-display">
+                <div class="tagline-label">Primary Tagline</div>
+                <div class="tagline">"Built for how you work."</div>
+            </div>
+            <p>This tagline emphasizes customization and client-centricity in five simple words.</p>
+
+            <h3>Alternative Options</h3>
+            <div class="alt-taglines">
+                <div class="alt-tagline">
+                    <span class="alt-tagline-text">"Your workflow, perfected."</span>
+                    <span class="alt-tagline-emphasis">Process optimization</span>
+                </div>
+                <div class="alt-tagline">
+                    <span class="alt-tagline-text">"Custom software. Real results."</span>
+                    <span class="alt-tagline-emphasis">Tangible outcomes</span>
+                </div>
+                <div class="alt-tagline">
+                    <span class="alt-tagline-text">"Made to fit your business."</span>
+                    <span class="alt-tagline-emphasis">Customization</span>
+                </div>
+                <div class="alt-tagline">
+                    <span class="alt-tagline-text">"Simplify. Automate. Grow."</span>
+                    <span class="alt-tagline-emphasis">Action-oriented benefits</span>
+                </div>
+                <div class="alt-tagline">
+                    <span class="alt-tagline-text">"Software that works like you do."</span>
+                    <span class="alt-tagline-emphasis">Adaptability</span>
+                </div>
+            </div>
+
+            <h3>Tagline Usage</h3>
+            <ul>
+                <li>The tagline should appear with the logo in marketing materials</li>
+                <li>Can be used independently in headlines or social media</li>
+                <li>Always maintain the exact wording—don't paraphrase</li>
+            </ul>
+        </section>
+
+        <!-- Messaging Framework -->
+        <section id="messaging" class="section">
+            <span class="section-number">11</span>
+            <h2>Messaging Framework</h2>
+
+            <h3>Elevator Pitch (10 seconds)</h3>
+            <blockquote>"Benck builds custom CRM and ERP software for small and medium businesses. Unlike generic solutions, we create applications tailored to exactly how your business works."</blockquote>
+
+            <h3>Short Description (30 seconds)</h3>
+            <div class="highlight-box">
+                <p>"Benck helps small and medium-sized businesses streamline their operations with fully custom software solutions. We specialize in CRM and ERP systems built around your specific workflows—not the other way around. The result? Faster processes, better data, and software that actually fits how you work."</p>
+            </div>
+
+            <h3>Value Propositions</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Benefit</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Customization</strong></td>
+                            <td>"Your business isn't generic. Your software shouldn't be either."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Support</strong></td>
+                            <td>"Real people who know your system, not ticket queues."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Efficiency</strong></td>
+                            <td>"Eliminate manual work. Automate what slows you down."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Growth</strong></td>
+                            <td>"Software that scales with your business, not against it."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Simplicity</strong></td>
+                            <td>"Powerful doesn't have to mean complicated."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Proof Points</h3>
+            <ul>
+                <li>Custom-built for your exact workflow requirements</li>
+                <li>Dedicated support from the team that built your system</li>
+                <li>Iterative development—we refine until it's right</li>
+                <li>Full ownership of your solution</li>
+                <li>Integration with your existing tools</li>
+            </ul>
+        </section>
+
+        <!-- Social Media Guidelines -->
+        <section id="social" class="section">
+            <span class="section-number">12</span>
+            <h2>Social Media Guidelines</h2>
+
+            <h3>Instagram @benck.tech</h3>
+            <h4>Content Pillars</h4>
+
+            <div class="pillar">
+                <div class="pillar-percent">30%</div>
+                <div class="pillar-content">
+                    <h4>Behind the Scenes</h4>
+                    <ul>
+                        <li>Team moments and culture</li>
+                        <li>Development process glimpses</li>
+                        <li>Office life and personality</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-percent">40%</div>
+                <div class="pillar-content">
+                    <h4>Value Content</h4>
+                    <ul>
+                        <li>Tips for business efficiency</li>
+                        <li>Process improvement insights</li>
+                        <li>Industry trends and thoughts</li>
+                        <li>Before/after workflow transformations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-percent">20%</div>
+                <div class="pillar-content">
+                    <h4>Client Success</h4>
+                    <ul>
+                        <li>Project showcases (with permission)</li>
+                        <li>Results and testimonials</li>
+                        <li>Problem-solution stories</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-percent">10%</div>
+                <div class="pillar-content">
+                    <h4>Brand & Culture</h4>
+                    <ul>
+                        <li>Company milestones</li>
+                        <li>Team introductions</li>
+                        <li>Yes, occasional Zack and Bento content</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Hashtag Strategy</h3>
+            <p><strong>Primary (always use):</strong></p>
+            <p>
+                <span class="pill">#Benck</span>
+                <span class="pill">#BenckTech</span>
+            </p>
+            <p><strong>Secondary (rotate):</strong></p>
+            <p>
+                <span class="pill">#CustomSoftware</span>
+                <span class="pill">#CRMSolutions</span>
+                <span class="pill">#ERPSystems</span>
+                <span class="pill">#BusinessAutomation</span>
+                <span class="pill">#SmallBusinessTech</span>
+                <span class="pill">#WorkflowOptimization</span>
+            </p>
+
+            <h3>Tone on Social</h3>
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Good Examples</h4>
+                    <ul>
+                        <li>"Ever feel like you're fighting against your own tools? We get it."</li>
+                        <li>"Happy Friday from the Benck team! Here's what we've been building this week..."</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Avoid</h4>
+                    <ul>
+                        <li>"Leverage synergistic solutions for optimal ROI..."</li>
+                        <li>"AMAZING DEAL!!! DM NOW!!!"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Do's and Don'ts -->
+        <section id="dos-donts" class="section">
+            <span class="section-number">13</span>
+            <h2>Brand Do's and Don'ts</h2>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>Do's</h4>
+                    <ul>
+                        <li><strong>Do</strong> maintain consistency across all touchpoints</li>
+                        <li><strong>Do</strong> use the approved color palette</li>
+                        <li><strong>Do</strong> keep messaging client-focused</li>
+                        <li><strong>Do</strong> be approachable and human</li>
+                        <li><strong>Do</strong> back claims with specifics</li>
+                        <li><strong>Do</strong> use high-quality images</li>
+                        <li><strong>Do</strong> leave plenty of white space</li>
+                        <li><strong>Do</strong> proofread everything</li>
+                        <li><strong>Do</strong> consider accessibility</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>Don'ts</h4>
+                    <ul>
+                        <li><strong>Don't</strong> use colors outside the palette</li>
+                        <li><strong>Don't</strong> distort or modify the logo</li>
+                        <li><strong>Don't</strong> use overly technical jargon</li>
+                        <li><strong>Don't</strong> make promises you can't deliver</li>
+                        <li><strong>Don't</strong> use low-quality images</li>
+                        <li><strong>Don't</strong> clutter designs</li>
+                        <li><strong>Don't</strong> use casual tone in proposals</li>
+                        <li><strong>Don't</strong> copy competitor messaging</li>
+                        <li><strong>Don't</strong> forget the period in "Benck."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section class="section">
+            <span class="section-number">Appendix</span>
+            <h2>Quick Reference</h2>
+
+            <div class="quick-ref">
+                <h3>Brand at a Glance</h3>
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-label">Name</div>
+                        <div class="quick-ref-value green">Benck.</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-label">Tagline</div>
+                        <div class="quick-ref-value">Built for how you work.</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-label">Primary Color</div>
+                        <div class="quick-ref-value green">#6de067</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-label">Typography</div>
+                        <div class="quick-ref-value">Inter</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-label">Voice</div>
+                        <div class="quick-ref-value">Professional, Friendly, Innovative</div>
+                    </div>
+                    <div class="quick-ref-item">
+                        <div class="quick-ref-label">Target</div>
+                        <div class="quick-ref-value">SMBs 10-200 employees</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 48px; color: var(--medium-gray); font-style: italic;">This document is a living guide. Update it as Benck evolves.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Benck.</div>
+        <p>Built for how you work.</p>
+        <div class="footer-links">
+            <a href="https://www.instagram.com/benck.tech/" target="_blank">@benck.tech</a>
+        </div>
+    </footer>
+
+</body>
+</html>
