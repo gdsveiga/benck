@@ -10,11 +10,11 @@
     <title>Benck. | Feito do seu jeito.</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts - Distinctive choices -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
+    <!-- Grain overlay for texture -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav>
       <div class="container">
@@ -29,161 +32,120 @@
         <ul class="nav-links">
           <li><a href="#problems">Desafios</a></li>
           <li><a href="#services">Serviços</a></li>
-          <li><a href="#benefits">Diferenciais</a></li>
+          <li><a href="#benefits">Por quê</a></li>
           <li><a href="#process">Processo</a></li>
-          <li><a href="#contact" class="nav-cta">Começar</a></li>
         </ul>
+        <a href="#contact" class="nav-cta">Começar projeto</a>
         <button class="mobile-menu-btn" aria-label="Menu">
-          <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#problems">Desafios</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#benefits">Por quê</a></li>
+        <li><a href="#process">Processo</a></li>
+        <li><a href="#contact" class="mobile-cta">Começar projeto</a></li>
+      </ul>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
+      <div class="hero-bg-text" aria-hidden="true">BENCK</div>
       <div class="container">
-        <div class="hero-content">
-          <h1>Software <span class="highlight">feito do seu jeito.</span></h1>
-          <p class="hero-description">
-            Pare de forçar seu negócio a se adaptar a softwares genéricos.
-            Desenvolvemos CRM e ERP personalizados para seus processos e
-            necessidades.
-          </p>
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">
-              Iniciar seu projeto
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="#services" class="btn btn-secondary">Saiba mais</a>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-eyebrow" data-animate="fade-up">
+              <span class="eyebrow-line"></span>
+              <span>Software sob medida para sua empresa</span>
+            </div>
+            <h1 data-animate="fade-up" data-delay="1">
+              <span class="hero-line">Software</span>
+              <span class="hero-line highlight">feito do</span>
+              <span class="hero-line highlight">seu jeito.</span>
+            </h1>
+            <p class="hero-description" data-animate="fade-up" data-delay="2">
+              Pare de adaptar seu negócio a ferramentas genéricas.
+              Criamos CRM e ERP personalizados que funcionam
+              exatamente como você trabalha.
+            </p>
+            <div class="hero-actions" data-animate="fade-up" data-delay="3">
+              <a href="#contact" class="btn btn-primary">
+                <span>Iniciar projeto</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </a>
+              <a href="#services" class="btn btn-ghost">
+                <span>Como funciona</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual" data-animate="fade-in" data-delay="2">
+            <div class="visual-wrapper">
+              <!-- Abstract shapes representing customization -->
+              <div class="shape shape-1"></div>
+              <div class="shape shape-2"></div>
+              <div class="shape shape-3"></div>
+
+              <!-- Floating cards -->
+              <div class="float-card card-stats">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                    <path d="M17 6h6v6"/>
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <span class="card-value">+127%</span>
+                  <span class="card-label">Produtividade</span>
+                </div>
+              </div>
+
+              <div class="float-card card-notification">
+                <div class="notif-dot"></div>
+                <span>Novo pedido recebido</span>
+              </div>
+
+              <div class="float-card card-tasks">
+                <span class="tasks-title">Automatizado</span>
+                <div class="tasks-bar">
+                  <div class="tasks-progress"></div>
+                </div>
+                <span class="tasks-percent">94%</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-dashboard">
-            <!-- Main Dashboard Window -->
-            <div class="dashboard-window">
-              <div class="window-header">
-                <div class="window-dots">
-                  <span></span><span></span><span></span>
-                </div>
-                <div class="window-title">Dashboard — Seu Negócio</div>
-              </div>
-              <div class="window-content">
-                <div class="dashboard-sidebar">
-                  <div class="sidebar-item active"></div>
-                  <div class="sidebar-item"></div>
-                  <div class="sidebar-item"></div>
-                  <div class="sidebar-item"></div>
-                </div>
-                <div class="dashboard-main">
-                  <div class="stat-row">
-                    <div class="stat-card">
-                      <span class="stat-value">R$ 47.2k</span>
-                      <span class="stat-label">Receita</span>
-                      <div class="stat-trend up">+12%</div>
-                    </div>
-                    <div class="stat-card">
-                      <span class="stat-value">284</span>
-                      <span class="stat-label">Clientes</span>
-                      <div class="stat-trend up">+8%</div>
-                    </div>
-                  </div>
-                  <div class="chart-area">
-                    <svg
-                      class="mini-chart"
-                      viewBox="0 0 200 60"
-                      preserveAspectRatio="none"
-                    >
-                      <defs>
-                        <linearGradient
-                          id="chartGradient"
-                          x1="0%"
-                          y1="0%"
-                          x2="0%"
-                          y2="100%"
-                        >
-                          <stop
-                            offset="0%"
-                            style="stop-color: #6de067; stop-opacity: 0.4"
-                          />
-                          <stop
-                            offset="100%"
-                            style="stop-color: #6de067; stop-opacity: 0"
-                          />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        class="chart-fill"
-                        d="M0,60 L0,45 Q25,40 50,35 T100,25 T150,15 T200,20 L200,60 Z"
-                        fill="url(#chartGradient)"
-                      />
-                      <path
-                        class="chart-line"
-                        d="M0,45 Q25,40 50,35 T100,25 T150,15 T200,20"
-                        fill="none"
-                        stroke="#6de067"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </div>
+    
+    </section>
 
-            <!-- Floating Elements -->
-            <div class="floating-element float-notification">
-              <div class="notif-icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
-                </svg>
-              </div>
-              <div class="notif-text">
-                <strong>Nova venda!</strong>
-                <span>Pedido #1284 confirmado</span>
-              </div>
-            </div>
-
-            <div class="floating-element float-widget">
-              <div class="widget-header">Tarefas Hoje</div>
-              <div class="widget-tasks">
-                <div class="task-item done"><span></span>Reunião cliente</div>
-                <div class="task-item done"><span></span>Enviar proposta</div>
-                <div class="task-item"><span></span>Follow-up leads</div>
-              </div>
-            </div>
-
-            <div class="floating-element float-badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                />
-              </svg>
-              <span>100% Personalizado</span>
-            </div>
-          </div>
+    <!-- Marquee Section -->
+    <section class="marquee-section">
+      <div class="marquee">
+        <div class="marquee-content">
+          <span>CRM Personalizado</span>
+          <span class="marquee-dot"></span>
+          <span>ERP Sob Medida</span>
+          <span class="marquee-dot"></span>
+          <span>Automação de Processos</span>
+          <span class="marquee-dot"></span>
+          <span>Suporte Dedicado</span>
+          <span class="marquee-dot"></span>
+          <span>CRM Personalizado</span>
+          <span class="marquee-dot"></span>
+          <span>ERP Sob Medida</span>
+          <span class="marquee-dot"></span>
+          <span>Automação de Processos</span>
+          <span class="marquee-dot"></span>
+          <span>Suporte Dedicado</span>
+          <span class="marquee-dot"></span>
         </div>
       </div>
     </section>
@@ -191,144 +153,81 @@
     <!-- Problems Section -->
     <section class="problems" id="problems">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">O Problema</span>
-          <h2>Isso parece familiar?</h2>
-          <p>
-            Essas são as frustrações que ouvimos todos os dias de empresas como
-            a sua.
-          </p>
+        <div class="problems-header">
+          <span class="section-number">01</span>
+          <div class="section-intro">
+            <h2 data-animate="fade-up">
+              <span class="text-muted">Você reconhece</span>
+              <br />algum desses problemas?
+            </h2>
+            <p data-animate="fade-up" data-delay="1">
+              São as frustrações que ouvimos diariamente de empresas como a sua.
+            </p>
+          </div>
         </div>
+
         <div class="problems-grid">
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-                <line x1="9" y1="21" x2="9" y2="9" />
-              </svg>
-            </div>
+          <article class="problem-card" data-animate="fade-up" data-delay="1">
+            <div class="problem-number">01</div>
             <h3>Ferramentas desconectadas</h3>
             <p>
-              "Usamos 5 aplicativos diferentes que não se comunicam, e vivemos
-              copiando dados de um para o outro."
+              "Usamos 5 aplicativos diferentes que não conversam entre si.
+              Vivemos copiando dados de um para outro."
             </p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M16 16s-1.5-2-4-2-4 2-4 2" />
-                <line x1="9" y1="9" x2="9.01" y2="9" />
-                <line x1="15" y1="9" x2="15.01" y2="9" />
-              </svg>
-            </div>
-            <h3>Software que não se adapta</h3>
+          </article>
+
+          <article class="problem-card" data-animate="fade-up" data-delay="2">
+            <div class="problem-number">02</div>
+            <h3>Software inflexível</h3>
             <p>
-              "Nosso CRM nos força a trabalhar em volta das limitações dele, em
-              vez de apoiar como realmente operamos."
+              "Nosso CRM nos obriga a trabalhar em volta das limitações dele,
+              em vez de apoiar como realmente operamos."
             </p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-            </div>
-            <h3>Horas perdidas em trabalho manual</h3>
+          </article>
+
+          <article class="problem-card featured" data-animate="fade-up" data-delay="3">
+            <div class="problem-number">03</div>
+            <h3>Horas em trabalho manual</h3>
             <p>
-              "Gastamos incontáveis horas em entrada de dados e tarefas que
-              deveriam ser automatizadas."
+              "Gastamos horas em entrada de dados e tarefas repetitivas
+              que deveriam ser automatizadas."
             </p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
-              </svg>
+            <div class="problem-visual">
+              <div class="clock-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
             </div>
-            <h3>Suporte que não entende</h3>
+          </article>
+
+          <article class="problem-card" data-animate="fade-up" data-delay="4">
+            <div class="problem-number">04</div>
+            <h3>Suporte genérico</h3>
             <p>
-              "O suporte de softwares genéricos não conhece nosso negócio. Somos
-              apenas mais um ticket na fila deles."
+              "O suporte não conhece nosso negócio.
+              Somos apenas mais um ticket na fila."
             </p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="12" y1="1" x2="12" y2="23" />
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-              </svg>
-            </div>
-            <h3>Pagando por recursos que não usa</h3>
+          </article>
+
+          <article class="problem-card" data-animate="fade-up" data-delay="5">
+            <div class="problem-number">05</div>
+            <h3>Pagando pelo que não usa</h3>
             <p>
-              "Pagamos preços de enterprise por recursos que nunca vamos usar,
+              "Pagamos por recursos que nunca usamos,
               enquanto faltam os que realmente precisamos."
             </p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-                <polyline points="10 9 9 9 8 9" />
-              </svg>
-            </div>
-            <h3>Relatórios que você precisa</h3>
+          </article>
+
+          <article class="problem-card" data-animate="fade-up" data-delay="6">
+            <div class="problem-number">06</div>
+            <h3>Relatórios limitados</h3>
             <p>
-              "Precisamos de insights específicos sobre nosso negócio, mas não
-              conseguimos extraí-los das ferramentas atuais."
+              "Precisamos de insights específicos, mas não conseguimos
+              extraí-los das ferramentas atuais."
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -336,71 +235,113 @@
     <!-- Services Section -->
     <section class="services" id="services">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">O Que Fazemos</span>
-          <h2>Soluções personalizadas para seu negócio</h2>
-          <p>
-            Não forçamos seu negócio a se adaptar ao software. Construímos
-            software que se adapta ao seu negócio.
-          </p>
+        <div class="services-header">
+          <span class="section-number light">02</span>
+          <h2 data-animate="fade-up">
+            Nossas<br />
+            <span class="text-green">soluções.</span>
+          </h2>
         </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-number">01</div>
-            <h3>CRM Personalizado</h3>
-            <p>
-              Um sistema de gestão de relacionamento com clientes construído em
-              torno do seu processo de vendas, não o contrário.
-            </p>
-            <ul class="service-features">
-              <li>Adaptado ao seu fluxo de vendas</li>
-              <li>Integração com suas ferramentas existentes</li>
-              <li>Relatórios e dashboards personalizados</li>
-              <li>Design responsivo para mobile</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="service-number">02</div>
-            <h3>ERP Sob Medida</h3>
-            <p>
-              Planejamento de recursos empresariais que realmente combina com a
-              forma como suas operações funcionam.
-            </p>
-            <ul class="service-features">
-              <li>Gestão de estoque e cadeia de suprimentos</li>
-              <li>Controle financeiro e relatórios</li>
-              <li>Integração com recursos humanos</li>
-              <li>Ferramentas de planejamento de produção</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="service-number">03</div>
-            <h3>Automação de Processos</h3>
-            <p>
-              Elimine trabalho manual e reduza erros automatizando tarefas
-              repetitivas.
-            </p>
-            <ul class="service-features">
-              <li>Automação de fluxos de trabalho</li>
-              <li>Sincronização de dados</li>
-              <li>Notificações e alertas automáticos</li>
-              <li>Geração de documentos</li>
-            </ul>
-          </div>
-          <div class="service-card">
-            <div class="service-number">04</div>
-            <h3>Suporte Contínuo</h3>
-            <p>
-              Somos parceiros, não apenas fornecedores. Seu sistema evolui
-              conforme seu negócio cresce.
-            </p>
-            <ul class="service-features">
-              <li>Equipe de suporte dedicada</li>
-              <li>Melhorias contínuas</li>
-              <li>Treinamento e documentação</li>
-              <li>Monitoramento de performance</li>
-            </ul>
-          </div>
+
+        <div class="services-list">
+          <article class="service-item" data-animate="fade-up">
+            <div class="service-index">01</div>
+            <div class="service-content">
+              <h3>CRM Personalizado</h3>
+              <p>
+                Sistema de gestão de clientes construído em torno do seu processo
+                de vendas, não o contrário. Cada campo, cada fluxo, cada relatório
+                desenhado para como você realmente trabalha.
+              </p>
+              <ul class="service-tags">
+                <li>Pipeline customizado</li>
+                <li>Automações</li>
+                <li>Integrações</li>
+                <li>Mobile</li>
+              </ul>
+            </div>
+            <div class="service-visual">
+              <div class="service-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item" data-animate="fade-up">
+            <div class="service-index">02</div>
+            <div class="service-content">
+              <h3>ERP Sob Medida</h3>
+              <p>
+                Planejamento de recursos empresariais que realmente combina com
+                suas operações. Elimine planilhas e sistemas que não conversam.
+              </p>
+              <ul class="service-tags">
+                <li>Estoque</li>
+                <li>Financeiro</li>
+                <li>RH</li>
+                <li>Produção</li>
+              </ul>
+            </div>
+            <div class="service-visual">
+              <div class="service-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item" data-animate="fade-up">
+            <div class="service-index">03</div>
+            <div class="service-content">
+              <h3>Automação de Processos</h3>
+              <p>
+                Elimine trabalho manual e reduza erros automatizando tarefas
+                repetitivas. Mais tempo para o que realmente importa.
+              </p>
+              <ul class="service-tags">
+                <li>Workflows</li>
+                <li>Sincronização</li>
+                <li>Alertas</li>
+                <li>Documentos</li>
+              </ul>
+            </div>
+            <div class="service-visual">
+              <div class="service-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item" data-animate="fade-up">
+            <div class="service-index">04</div>
+            <div class="service-content">
+              <h3>Suporte Contínuo</h3>
+              <p>
+                Somos parceiros, não apenas fornecedores. Seu sistema evolui
+                conforme seu negócio cresce, com suporte de quem construiu.
+              </p>
+              <ul class="service-tags">
+                <li>Dedicado</li>
+                <li>Evolução</li>
+                <li>Treinamento</li>
+                <li>Monitoramento</li>
+              </ul>
+            </div>
+            <div class="service-visual">
+              <div class="service-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -408,111 +349,78 @@
     <!-- Benefits Section -->
     <section class="benefits" id="benefits">
       <div class="container">
-        <div class="benefits-content">
-          <div class="benefits-visual">
-            <div class="benefits-image">
-              <span class="benefits-image-text">Benck.</span>
-            </div>
+        <div class="benefits-layout">
+          <div class="benefits-sticky">
+            <span class="section-number">03</span>
+            <h2 data-animate="fade-up">
+              Por que a<br />
+              <span class="logo-inline">Benck.</span>
+            </h2>
+            <p class="benefits-lead" data-animate="fade-up" data-delay="1">
+              Não vendemos software de prateleira.
+              Construímos ferramentas que se moldam ao seu negócio.
+            </p>
           </div>
-          <div class="benefits-text">
-            <span class="section-label">Por Que a Benck</span>
-            <h2>Diferente, de propósito</h2>
-            <div class="benefits-list">
-              <div class="benefit-item">
-                <div class="benefit-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                </div>
-                <div class="benefit-content">
-                  <h3>100% personalização</h3>
-                  <p>
-                    Seu negócio é único. Seu software também deveria ser. Cada
-                    funcionalidade construída para suas necessidades
-                    específicas.
-                  </p>
-                </div>
+
+          <div class="benefits-cards">
+            <article class="benefit-card" data-animate="fade-up">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
               </div>
-              <div class="benefit-item">
-                <div class="benefit-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path
-                      d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
-                    />
-                  </svg>
-                </div>
-                <div class="benefit-content">
-                  <h3>Parceria de verdade</h3>
-                  <p>
-                    Não somos apenas fornecedores. Somos parceiros investidos no
-                    seu sucesso, com suporte dedicado de pessoas que conhecem
-                    seu sistema.
-                  </p>
-                </div>
+              <h3>100% Personalização</h3>
+              <p>
+                Cada funcionalidade construída para suas necessidades específicas.
+                Seu negócio é único — seu software também.
+              </p>
+            </article>
+
+            <article class="benefit-card" data-animate="fade-up" data-delay="1">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
               </div>
-              <div class="benefit-item">
-                <div class="benefit-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="8 12 12 16 16 12" />
-                    <line x1="12" y1="8" x2="12" y2="16" />
-                  </svg>
-                </div>
-                <div class="benefit-content">
-                  <h3>Escala com você</h3>
-                  <p>
-                    Software que cresce junto com seu negócio. Sem necessidade
-                    de trocar de sistema conforme você expande.
-                  </p>
-                </div>
+              <h3>Parceria Real</h3>
+              <p>
+                Não somos fornecedores distantes. Somos parceiros investidos
+                no seu sucesso, com suporte de pessoas que conhecem seu sistema.
+              </p>
+            </article>
+
+            <article class="benefit-card" data-animate="fade-up" data-delay="2">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                  <path d="M17 6h6v6"/>
+                </svg>
               </div>
-              <div class="benefit-item">
-                <div class="benefit-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                </div>
-                <div class="benefit-content">
-                  <h3>A solução é sua</h3>
-                  <p>
-                    Propriedade total da sua solução. Sem dependência de
-                    fornecedor, sem aumentos surpresa de preço.
-                  </p>
-                </div>
+              <h3>Escala com Você</h3>
+              <p>
+                Software que cresce junto com seu negócio.
+                Sem necessidade de trocar de sistema conforme você expande.
+              </p>
+            </article>
+
+            <article class="benefit-card" data-animate="fade-up" data-delay="3">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
               </div>
-            </div>
+              <h3>Propriedade Total</h3>
+              <p>
+                A solução é sua. Sem dependência de fornecedor,
+                sem aumentos surpresa de preço.
+              </p>
+            </article>
           </div>
         </div>
       </div>
@@ -521,45 +429,68 @@
     <!-- Process Section -->
     <section class="process" id="process">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Nosso Processo</span>
-          <h2>Como trabalhamos juntos</h2>
-          <p>
-            Uma abordagem colaborativa que coloca seu negócio em primeiro lugar.
-          </p>
+        <div class="process-header">
+          <span class="section-number light">04</span>
+          <h2 data-animate="fade-up">
+            Como<br />
+            <span class="text-green">trabalhamos.</span>
+          </h2>
         </div>
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="step-number">1</div>
-            <h3>Descoberta</h3>
-            <p>
-              Mergulhamos fundo no seu negócio para entender seus fluxos de
-              trabalho, desafios e objetivos.
-            </p>
-          </div>
-          <div class="process-step">
-            <div class="step-number">2</div>
-            <h3>Design</h3>
-            <p>
-              Projetamos uma arquitetura de solução sob medida para suas
-              necessidades específicas.
-            </p>
-          </div>
-          <div class="process-step">
-            <div class="step-number">3</div>
-            <h3>Construção</h3>
-            <p>
-              Desenvolvimento iterativo com reuniões regulares para você estar
-              sempre por dentro.
-            </p>
-          </div>
-          <div class="process-step">
-            <div class="step-number">4</div>
-            <h3>Suporte</h3>
-            <p>
-              Parceria contínua para refinar, melhorar e escalar sua solução.
-            </p>
-          </div>
+
+        <div class="process-timeline">
+          <div class="timeline-line"></div>
+
+          <article class="process-step" data-animate="fade-up">
+            <div class="step-marker">
+              <span>01</span>
+            </div>
+            <div class="step-content">
+              <h3>Descoberta</h3>
+              <p>
+                Mergulhamos no seu negócio para entender seus fluxos,
+                desafios e objetivos. Sem pressa — queremos fazer certo.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step" data-animate="fade-up" data-delay="1">
+            <div class="step-marker">
+              <span>02</span>
+            </div>
+            <div class="step-content">
+              <h3>Design</h3>
+              <p>
+                Projetamos uma arquitetura de solução sob medida,
+                considerando suas necessidades específicas e crescimento futuro.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step" data-animate="fade-up" data-delay="2">
+            <div class="step-marker">
+              <span>03</span>
+            </div>
+            <div class="step-content">
+              <h3>Construção</h3>
+              <p>
+                Desenvolvimento iterativo com demonstrações regulares.
+                Você acompanha cada etapa e valida antes de prosseguir.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-step" data-animate="fade-up" data-delay="3">
+            <div class="step-marker active">
+              <span>04</span>
+            </div>
+            <div class="step-content">
+              <h3>Evolução</h3>
+              <p>
+                Parceria contínua para refinar, melhorar e escalar sua solução
+                conforme seu negócio evolui.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -567,36 +498,53 @@
     <!-- CTA Section -->
     <section class="cta" id="contact">
       <div class="container">
-        <div class="cta-content">
-          <h2>Pronto para ter um software que funciona do seu jeito?</h2>
-          <p>
-            Vamos conversar sobre seu negócio e explorar como uma solução
-            personalizada pode transformar suas operações.
-          </p>
+        <div class="cta-layout">
+          <div class="cta-content" data-animate="fade-up">
+            <h2>
+              Pronto para um software
+              <br />
+              <span class="text-dark">que funciona do seu jeito?</span>
+            </h2>
+            <p>
+              Preencha o formulário e vamos conversar sobre como uma solução
+              personalizada pode transformar suas operações.
+            </p>
+            <div class="cta-social">
+              <span>Ou fale diretamente:</span>
+              <a href="https://www.instagram.com/benck.tech/" target="_blank" rel="noopener">@benck.tech</a>
+            </div>
+          </div>
+          <div class="cta-form-wrapper" data-animate="fade-up" data-delay="1">
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nome</label>
+                  <input type="text" id="name" name="name" required placeholder="Seu nome" />
+                </div>
+                <div class="form-group">
+                  <label for="company">Empresa</label>
+                  <input type="text" id="company" name="company" placeholder="Nome da empresa" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="message">Como podemos ajudar?</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Conte um pouco sobre seu projeto ou desafio..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark btn-full">
+                <span>Enviar mensagem</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="cta-buttons">
-          <a href="mailto:contact@benck.tech" class="btn btn-dark">
-            Entrar em contato
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/benck.tech/"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-outline"
-            >Siga-nos</a
-          >
+        <div class="cta-visual" aria-hidden="true">
+          <span class="cta-logo">Benck.</span>
         </div>
       </div>
     </section>
@@ -604,72 +552,54 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="footer-content">
+        <div class="footer-main">
           <div class="footer-brand">
             <a href="#" class="logo">Benck.</a>
             <p>
-              Soluções personalizadas de CRM e ERP feitas do seu jeito. Somos
-              pessoas reais que se importam com o seu sucesso.
+              Software personalizado para quem quer parar de se adaptar
+              e começar a ter ferramentas que funcionam.
             </p>
-            <div class="footer-social">
-              <a
-                href="https://www.instagram.com/benck.tech/"
-                target="_blank"
-                rel="noopener"
-                aria-label="Instagram"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
+          </div>
+
+          <div class="footer-nav">
+            <div class="footer-col">
+              <h4>Serviços</h4>
+              <ul>
+                <li><a href="#services">CRM Personalizado</a></li>
+                <li><a href="#services">ERP Sob Medida</a></li>
+                <li><a href="#services">Automação</a></li>
+                <li><a href="#services">Suporte</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Empresa</h4>
+              <ul>
+                <li><a href="#benefits">Por que Benck</a></li>
+                <li><a href="#process">Processo</a></li>
+                <li><a href="#contact">Contato</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Conecte-se</h4>
+              <ul>
+                <li>
+                  <a href="https://www.instagram.com/benck.tech/" target="_blank" rel="noopener">
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:contato@benck.tech">Email</a>
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="footer-links">
-            <h4>Serviços</h4>
-            <ul>
-              <li><a href="#services">CRM Personalizado</a></li>
-              <li><a href="#services">ERP Sob Medida</a></li>
-              <li><a href="#services">Automação</a></li>
-              <li><a href="#services">Suporte</a></li>
-            </ul>
-          </div>
-          <div class="footer-links">
-            <h4>Empresa</h4>
-            <ul>
-              <li><a href="#benefits">Sobre Nós</a></li>
-              <li><a href="#process">Nosso Processo</a></li>
-              <li><a href="#contact">Contato</a></li>
-            </ul>
-          </div>
-          <div class="footer-links">
-            <h4>Conecte-se</h4>
-            <ul>
-              <li>
-                <a
-                  href="https://www.instagram.com/benck.tech/"
-                  target="_blank"
-                  rel="noopener"
-                  >Instagram</a
-                >
-              </li>
-              <li><a href="mailto:contact@benck.tech">Envie um Email</a></li>
-            </ul>
-          </div>
         </div>
+
         <div class="footer-bottom">
           <p>&copy; 2025 Benck. Todos os direitos reservados.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Política de Privacidade</a>
-            <a href="#">Termos de Uso</a>
+          <div class="footer-legal">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos</a>
           </div>
         </div>
       </div>
