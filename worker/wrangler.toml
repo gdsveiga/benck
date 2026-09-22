@@ -1,0 +1,16 @@
+name = "benck-contact-worker"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[[routes]]
+pattern = "api.benck.tech"
+custom_domain = true
+
+[vars]
+# Origem permitida para CORS. Ajuste se usar www.benck.tech também.
+ALLOWED_ORIGIN = "https://benck.tech"
+CONTACT_TO = "hello@benck.tech"
+CONTACT_FROM = "Benck. <hello@benck.tech>"
+
+# A chave da Resend NÃO fica aqui. Depois de instalar o wrangler, rode:
+#   wrangler secret put RESEND_API_KEY

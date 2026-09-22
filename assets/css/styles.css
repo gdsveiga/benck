@@ -1286,6 +1286,15 @@ body > nav .container {
   gap: 0.5rem;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .form-group label {
   font-size: 0.875rem;
   font-weight: 600;
@@ -1351,6 +1360,13 @@ body > nav .container {
 .form-success p {
   color: var(--medium-gray);
   font-size: 1rem;
+}
+
+.form-error {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-top: var(--space-sm);
+  animation: fadeIn 0.3s var(--ease-out-expo);
 }
 
 @keyframes fadeIn {

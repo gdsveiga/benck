@@ -294,6 +294,7 @@
   // ============================================
 
   const contactForm = document.getElementById('contactForm');
+  const CONTACT_ENDPOINT = 'https://api.benck.tech/contact';
 
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -310,27 +311,41 @@
       submitBtn.innerHTML = '<span>Enviando...</span>';
       submitBtn.disabled = true;
 
-      // Simulate form submission (replace with actual endpoint)
-      setTimeout(() => {
-        // Create success message
-        const successMessage = document.createElement('div');
-        successMessage.className = 'form-success';
-        successMessage.innerHTML = `
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <h3>Mensagem enviada!</h3>
-          <p>Obrigado pelo contato. Retornaremos em breve.</p>
-        `;
+      let errorMessage = contactForm.querySelector('.form-error');
 
-        // Replace form with success message
-        contactForm.style.display = 'none';
-        contactForm.parentNode.appendChild(successMessage);
+      fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error('request_failed');
 
-        // Log form data (for development)
-        console.log('Form submitted:', data);
-      }, 1500);
+          const successMessage = document.createElement('div');
+          successMessage.className = 'form-success';
+          successMessage.innerHTML = `
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <h3>Mensagem enviada!</h3>
+            <p>Obrigado pelo contato. Retornaremos em breve.</p>
+          `;
+
+          contactForm.style.display = 'none';
+          contactForm.parentNode.appendChild(successMessage);
+        })
+        .catch(() => {
+          if (!errorMessage) {
+            errorMessage = document.createElement('p');
+            errorMessage.className = 'form-error';
+            contactForm.appendChild(errorMessage);
+          }
+          errorMessage.textContent = 'Não foi possível enviar sua mensagem. Tente novamente ou fale pelo Instagram.';
+
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        });
     });
   }
 
