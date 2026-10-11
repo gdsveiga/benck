@@ -1,358 +1,206 @@
 /**
- * BENCK. - Main JavaScript
- * Bold Editorial Design System
+ * BENCK. - Site
+ * Nav, menu mobile, parallax, telas que se endireitam no scroll, formulário e o hero 3D.
  */
 
-(function() {
+(function () {
   'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
 
-  // ============================================
-  // Utility Functions
-  // ============================================
+  /* Nav */
+  var nav = document.getElementById('nav');
+  /* Hero wordmark parallax, frame tilt, process line */
+  var word = document.getElementById('heroWord');
+  var frames = [].slice.call(document.querySelectorAll('[data-tilt]'));
+  var steps = document.getElementById('steps');
+  var stepsLine = steps.querySelector('.steps-line');
 
-  const debounce = (fn, delay) => {
-    let timeoutId;
-    return (...args) => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => fn(...args), delay);
-    };
-  };
+  function onScroll() {
+    var y = window.scrollY, vh = window.innerHeight;
+    nav.classList.toggle('is-scrolled', y > 40);
+    if (reduce) return;
+    if (y < vh * 1.2) word.style.transform = 'translate3d(0,' + (y * 0.32).toFixed(1) + 'px,0)';
+    frames.forEach(function (f) {
+      var r = f.getBoundingClientRect();
+      var t = clamp((vh - r.top) / (vh * 0.75), 0, 1);
+      f.style.setProperty('--t', t.toFixed(3));
+    });
+    var sr = steps.getBoundingClientRect();
+    stepsLine.style.setProperty('--p', clamp((vh * 0.85 - sr.top) / (vh * 0.6), 0, 1).toFixed(3));
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }
+  }, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
 
-  // ============================================
-  // Navigation
-  // ============================================
+  /* Reveal */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
+  }
 
-  const nav = document.querySelector('body > nav');
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileMenu = document.querySelector('.mobile-menu');
+  /* Menu mobile */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function setMenu(open) {
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    mobileMenu.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  menuBtn.addEventListener('click', function () { setMenu(mobileMenu.hidden); });
+  mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  window.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !mobileMenu.hidden) setMenu(false); });
+  window.matchMedia('(min-width: 861px)').addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
-  // Scroll handler for navigation
-  const handleNavScroll = () => {
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
+  /* Formulário de contato: Cloudflare Worker -> Resend (worker/) */
+  var CONTACT_ENDPOINT = 'https://api.benck.tech/contact';
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('formNote');
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var submitLabel = submitBtn.innerHTML;
+
+  function showNote(text, isError) {
+    note.textContent = text;
+    note.classList.toggle('is-error', !!isError);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      showNote('Preencha nome, e-mail e o que vocês precisam resolver para enviar.', true);
+      return;
     }
-  };
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    showNote('');
 
-  window.addEventListener('scroll', handleNavScroll);
-  handleNavScroll(); // Initial check
-
-  // Mobile menu toggle
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // Close mobile menu when clicking on links
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuBtn.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  // ============================================
-  // Smooth Scroll
-  // ============================================
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const navHeight = nav.offsetHeight;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // ============================================
-  // Scroll Animations with Intersection Observer
-  // ============================================
-
-  const animateElements = document.querySelectorAll('[data-animate]');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -10% 0px',
-    threshold: 0.1
-  };
-
-  const animationObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-        animationObserver.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  animateElements.forEach(el => {
-    animationObserver.observe(el);
-  });
-
-  // ============================================
-  // Hero Animations - Trigger on load
-  // ============================================
-
-  window.addEventListener('load', () => {
-    // Animate hero elements immediately
-    const heroAnimations = document.querySelectorAll('.hero [data-animate]');
-    heroAnimations.forEach((el, index) => {
-      setTimeout(() => {
-        el.classList.add('animated');
-      }, index * 100);
-    });
-  });
-
-  // ============================================
-  // Parallax Effect for Hero Background Text
-  // ============================================
-
-  const heroBgText = document.querySelector('.hero-bg-text');
-
-  if (heroBgText) {
-    const handleParallax = () => {
-      const scrolled = window.scrollY;
-      const rate = scrolled * 0.3;
-      heroBgText.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
-    };
-
-    window.addEventListener('scroll', debounce(handleParallax, 10));
-  }
-
-  // ============================================
-  // Service Items - Hover effect enhancement
-  // ============================================
-
-  const serviceItems = document.querySelectorAll('.service-item');
-
-  serviceItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      item.style.zIndex = '10';
-    });
-
-    item.addEventListener('mouseleave', () => {
-      item.style.zIndex = '1';
-    });
-  });
-
-  // ============================================
-  // Counter Animation for Stats
-  // ============================================
-
-  const animateCounter = (element, target, duration = 2000) => {
-    let start = 0;
-    const increment = target / (duration / 16);
-    const isPercentage = element.textContent.includes('%');
-    const hasPlus = element.textContent.includes('+');
-
-    const updateCounter = () => {
-      start += increment;
-      if (start < target) {
-        element.textContent = (hasPlus ? '+' : '') + Math.floor(start) + (isPercentage ? '%' : '');
-        requestAnimationFrame(updateCounter);
-      } else {
-        element.textContent = (hasPlus ? '+' : '') + target + (isPercentage ? '%' : '');
-      }
-    };
-
-    updateCounter();
-  };
-
-  // ============================================
-  // Process Timeline Animation
-  // ============================================
-
-  const timelineLine = document.querySelector('.timeline-line');
-  const processSteps = document.querySelectorAll('.process-step');
-
-  if (timelineLine && processSteps.length > 0) {
-    const processObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animate the timeline line
-          timelineLine.style.transition = 'transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
-          timelineLine.style.transformOrigin = 'top';
-
-          // Stagger step animations
-          processSteps.forEach((step, index) => {
-            setTimeout(() => {
-              step.style.opacity = '1';
-              step.style.transform = 'translateY(0)';
-            }, index * 200);
-          });
-
-          processObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    processObserver.observe(document.querySelector('.process-timeline'));
-  }
-
-  // ============================================
-  // Marquee - Pause on hover
-  // ============================================
-
-  const marquee = document.querySelector('.marquee-content');
-
-  if (marquee) {
-    const marqueeSection = document.querySelector('.marquee-section');
-
-    marqueeSection.addEventListener('mouseenter', () => {
-      marquee.style.animationPlayState = 'paused';
-    });
-
-    marqueeSection.addEventListener('mouseleave', () => {
-      marquee.style.animationPlayState = 'running';
-    });
-  }
-
-  // ============================================
-  // Cursor Effect for CTA Section (Desktop only)
-  // ============================================
-
-  const ctaSection = document.querySelector('.cta');
-
-  if (ctaSection && window.matchMedia('(pointer: fine)').matches) {
-    ctaSection.addEventListener('mousemove', (e) => {
-      const rect = ctaSection.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
-
-      const ctaLogo = ctaSection.querySelector('.cta-logo');
-      if (ctaLogo) {
-        ctaLogo.style.transform = `translate(${x}px, ${y}px)`;
-      }
-    });
-
-    ctaSection.addEventListener('mouseleave', () => {
-      const ctaLogo = ctaSection.querySelector('.cta-logo');
-      if (ctaLogo) {
-        ctaLogo.style.transform = 'translate(0, 0)';
-        ctaLogo.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-      }
-    });
-  }
-
-  // ============================================
-  // Benefit Cards - Stagger animation
-  // ============================================
-
-  const benefitCards = document.querySelectorAll('.benefit-card');
-
-  if (benefitCards.length > 0) {
-    const benefitsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          benefitCards.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add('animated');
-            }, index * 150);
-          });
-          benefitsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    benefitsObserver.observe(document.querySelector('.benefits-cards'));
-  }
-
-  // ============================================
-  // Problem Cards - Enhanced hover
-  // ============================================
-
-  const problemCards = document.querySelectorAll('.problem-card');
-
-  problemCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.zIndex = '10';
-    });
-
-    card.addEventListener('mouseleave', function() {
-      this.style.zIndex = '1';
-    });
-  });
-
-  // ============================================
-  // Contact Form Handling
-  // ============================================
-
-  const contactForm = document.getElementById('contactForm');
-  const CONTACT_ENDPOINT = 'https://api.benck.tech/contact';
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData);
-
-      // Get the submit button
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-
-      // Show loading state
-      submitBtn.innerHTML = '<span>Enviando...</span>';
-      submitBtn.disabled = true;
-
-      let errorMessage = contactForm.querySelector('.form-error');
-
-      fetch(CONTACT_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('request_failed');
+        form.reset();
+        showNote('Mensagem enviada. A gente responde em breve.');
       })
-        .then((response) => {
-          if (!response.ok) throw new Error('request_failed');
+      .catch(function () {
+        showNote('Não foi possível enviar agora. Tente de novo ou escreva para hello@benck.tech.', true);
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = submitLabel;
+      });
+  });
 
-          const successMessage = document.createElement('div');
-          successMessage.className = 'form-success';
-          successMessage.innerHTML = `
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            <h3>Mensagem enviada!</h3>
-            <p>Obrigado pelo contato. Retornaremos em breve.</p>
-          `;
+  /* Hero 3D: blocks assembling into one system */
+  var canvas = document.getElementById('heroCanvas');
+  if (!window.THREE) return;
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); }
+  catch (err) { return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  var scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x000000, 16, 38);
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+  var GREEN = 0x6de067;
 
-          contactForm.style.display = 'none';
-          contactForm.parentNode.appendChild(successMessage);
-        })
-        .catch(() => {
-          if (!errorMessage) {
-            errorMessage = document.createElement('p');
-            errorMessage.className = 'form-error';
-            contactForm.appendChild(errorMessage);
-          }
-          errorMessage.textContent = 'Não foi possível enviar sua mensagem. Tente novamente ou fale pelo Instagram.';
+  var world = new THREE.Group();
+  scene.add(world);
+  var cluster = new THREE.Group();
+  world.add(cluster);
 
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        });
-    });
+  var grid = new THREE.GridHelper(80, 80, 0x2b5a28, 0x163015);
+  grid.position.y = -0.02;
+  world.add(grid);
+
+  var edgeMat = new THREE.LineBasicMaterial({ color: GREEN });
+  var faceMat = new THREE.MeshBasicMaterial({ color: 0x000000, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+  var hotMat = new THREE.MeshBasicMaterial({ color: GREEN, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+  var hotEdge = new THREE.LineBasicMaterial({ color: 0x000000 });
+
+  // [x, y, z, sx, sy, sz] in a 4 x 4 x 3 grid of modules
+  var defs = [
+    [-1, 0.5, 0, 2, 1, 2], [1, 0.5, -0.5, 2, 1, 1], [1.5, 0.5, 0.5, 1, 1, 1], [0.5, 0.5, 0.5, 1, 1, 1],
+    [-1.5, 1.5, -0.5, 1, 1, 1], [-0.5, 1.5, 0.5, 1, 1, 1], [0.5, 1.5, 0, 1, 1, 2], [1.5, 1.5, -0.5, 1, 1, 1],
+    [-1.5, 1.5, 0.5, 1, 1, 1], [-1, 2.5, -0.5, 2, 1, 1], [0.5, 2.5, 0.5, 1, 1, 1], [1.5, 2.5, 0, 1, 1, 2],
+    [-0.5, 3.5, 0, 1, 1, 2]
+  ];
+  var HOT = defs.length - 1;
+  var blocks = defs.map(function (d, i) {
+    var g = new THREE.BoxGeometry(d[3] - 0.06, d[4] - 0.06, d[5] - 0.06);
+    var holder = new THREE.Group();
+    var hot = i === HOT;
+    holder.add(new THREE.Mesh(g, hot ? hotMat : faceMat));
+    holder.add(new THREE.LineSegments(new THREE.EdgesGeometry(g), hot ? hotEdge : edgeMat));
+    cluster.add(holder);
+    var dir = new THREE.Vector3(Math.random() - 0.5, Math.random() * 0.6 + 0.2, Math.random() - 0.5).normalize();
+    var dist = 9 + Math.random() * 7;
+    return {
+      o: holder,
+      to: new THREE.Vector3(d[0], d[1], d[2]),
+      from: new THREE.Vector3(d[0], d[1], d[2]).add(dir.multiplyScalar(dist)),
+      rot: new THREE.Euler((Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4, (Math.random() - 0.5) * 4),
+      delay: hot ? 1.5 : i * 0.07
+    };
+  });
+  cluster.position.set(-0.25, 0, 0);
+
+  var mouse = { x: 0, y: 0 }, smooth = { x: 0, y: 0 };
+  window.addEventListener('pointermove', function (e) {
+    mouse.x = e.clientX / window.innerWidth * 2 - 1;
+    mouse.y = e.clientY / window.innerHeight * 2 - 1;
+  }, { passive: true });
+
+  var layout = { x: 4.6, s: 1 };
+  function resize() {
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    var narrow = w < 860;
+    layout.x = narrow ? 2.4 : Math.min(5.2, 2.6 + w / 900);
+    layout.s = narrow ? 0.7 : 1;
+    camera.position.set(0, narrow ? 9 : 6, narrow ? 26 : 19);
+    camera.lookAt(narrow ? 0.6 : 1.2, narrow ? 7.5 : 2.4, 0);
+    camera.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var easeOut = function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); };
+  var start = performance.now();
+  var visible = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(canvas);
   }
 
-  // ============================================
-  // Preload critical animations
-  // ============================================
-
-  document.documentElement.classList.add('js-loaded');
-
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (!visible) return;
+    var t = (now - start) / 1000;
+    blocks.forEach(function (b) {
+      var k = reduce ? 1 : easeOut(clamp((t - 0.3 - b.delay) / 1.5, 0, 1));
+      b.o.position.lerpVectors(b.from, b.to, k);
+      b.o.rotation.set(b.rot.x * (1 - k), b.rot.y * (1 - k), b.rot.z * (1 - k));
+    });
+    smooth.x += (mouse.x - smooth.x) * 0.05;
+    smooth.y += (mouse.y - smooth.y) * 0.05;
+    var s = clamp(window.scrollY / window.innerHeight, 0, 1.5);
+    world.position.x = layout.x;
+    world.scale.setScalar(layout.s);
+    cluster.rotation.y = (reduce ? 0.6 : 0.6 + t * 0.12) + smooth.x * 0.35 + s * 1.4;
+    world.rotation.x = smooth.y * 0.05;
+    world.position.y = -s * 2.2;
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(frame);
 })();

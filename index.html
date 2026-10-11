@@ -2,12 +2,13 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="A Benck desenvolve software personalizado de CRM e ERP para pequenas e médias empresas. Diferente de soluções genéricas, criamos aplicações sob medida para o seu negócio."
+      content="A Benck. cria sistemas sob medida para empresas que cresceram mais rápido que as próprias planilhas, e produtos próprios como a Eunomia."
     />
-    <title>Benck. | Feito do seu jeito.</title>
+    <meta name="theme-color" content="#000000" />
+    <title>Benck. | Software sob medida para sua empresa</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link rel="canonical" href="https://benck.tech/" />
 
@@ -19,607 +20,241 @@
     <meta property="og:title" content="Benck. | Software feito do seu jeito" />
     <meta
       property="og:description"
-      content="CRM, ERP e automações sob medida para pequenas e médias empresas. Pare de adaptar seu negócio a ferramentas genéricas."
+      content="Sistemas sob medida para empresas que cresceram mais rápido que as próprias planilhas."
     />
     <meta property="og:image" content="https://benck.tech/assets/images/logo.png" />
     <meta property="og:image:width" content="500" />
     <meta property="og:image:height" content="500" />
     <meta name="twitter:card" content="summary" />
 
-    <!-- Google Fonts - Distinctive choices -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Marca a página como "com JS" antes do primeiro paint, para as animações de entrada não piscarem -->
+    <script>document.documentElement.classList.add('js');</script>
   </head>
   <body>
-    <!-- Grain overlay for texture -->
-    <div class="grain-overlay" aria-hidden="true"></div>
-
-    <!-- Navigation -->
-    <nav>
-      <div class="container">
-        <a href="#" class="logo">Benck.</a>
+    <header class="nav" id="nav">
+      <div class="wrap nav-inner">
+        <a class="logo" href="#topo">Benck.</a>
         <ul class="nav-links">
-          <li><a href="#problems">Desafios</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#benefits">Por quê</a></li>
-          <li><a href="#process">Processo</a></li>
+          <li><a href="#servicos">O que fazemos</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#eunomia">Eunomia</a></li>
+          <li><a href="#processo">Como trabalhamos</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Começar projeto</a>
-        <button class="mobile-menu-btn" aria-label="Menu">
-          <span></span>
-          <span></span>
-        </button>
+        <a class="btn btn-green" href="#contato">Falar com a gente</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
       </div>
+    </header>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu" hidden>
+      <a href="#servicos">O que fazemos</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#eunomia">Eunomia</a>
+      <a href="#processo">Como trabalhamos</a>
+      <a class="btn btn-green" href="#contato">Falar com a gente</a>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <ul class="mobile-nav-links">
-        <li><a href="#problems">Desafios</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#benefits">Por quê</a></li>
-        <li><a href="#process">Processo</a></li>
-        <li><a href="#contact" class="mobile-cta">Começar projeto</a></li>
-      </ul>
-    </div>
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="topo">
+        <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="wrap hero-content">
+          <h1><span class="ln"><span>Software</span></span><span class="ln"><span>feito do</span></span><span class="ln"><span>seu jeito.</span></span></h1>
+          <p class="hero-lead">Sistemas sob medida para empresas que cresceram mais rápido que as próprias planilhas. Você conta como o trabalho acontece hoje, e a gente constrói a ferramenta em volta disso.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#contato">Conversar sobre um projeto
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></a>
+          </div>
+        </div>
+        <div class="hero-word" id="heroWord" aria-hidden="true"><span>B</span><span>e</span><span>n</span><span>c</span><span>k</span><span>.</span></div>
+      </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-bg-text" aria-hidden="true">BENCK</div>
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-eyebrow" data-animate="fade-up">
-              <span class="eyebrow-line"></span>
-              <span>Software sob medida para sua empresa</span>
-            </div>
-            <h1 data-animate="fade-up" data-delay="1">
-              <span class="hero-line">Software</span>
-              <span class="hero-line highlight">feito do</span>
-              <span class="hero-line highlight">seu jeito.</span>
-            </h1>
-            <p class="hero-description" data-animate="fade-up" data-delay="2">
-              Pare de adaptar seu negócio a ferramentas genéricas.
-              Criamos CRM e ERP personalizados que funcionam
-              exatamente como você trabalha.
-            </p>
-            <div class="hero-actions" data-animate="fade-up" data-delay="3">
-              <a href="#contact" class="btn btn-primary">
-                <span>Iniciar projeto</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                </svg>
-              </a>
-              <a href="#services" class="btn btn-ghost">
-                <span>Como funciona</span>
-              </a>
+      <!-- O que fazemos -->
+      <section class="section" id="servicos">
+        <div class="wrap">
+          <div class="head">
+            <h2 data-reveal>Onde a gente costuma ajudar.</h2>
+            <p data-reveal>Quase sempre começa com uma planilha que só uma pessoa entende, ou com um pedido que se perdeu no WhatsApp.</p>
+          </div>
+          <div class="bento">
+            <article class="tile t-crm" data-reveal>
+              <div>
+                <h3>Vendas e clientes</h3>
+                <p>Cada contato, proposta e retorno num lugar só, com as etapas do jeito que o seu time vende.</p>
+              </div>
+              <div class="tile-art mini-kanban" aria-hidden="true">
+                <div class="col"><b>Primeiro contato</b><div class="card"><strong>Padaria Trigo Bom</strong><span>R$ 4.200</span></div><div class="card"><strong>Clínica Vitta</strong><span>R$ 9.800</span></div></div>
+                <div class="col"><b>Proposta</b><div class="card"><strong>Construtora Horizonte</strong><span>R$ 38.000</span></div></div>
+                <div class="col"><b>Negociando</b><div class="card hot"><strong>Grupo Mares</strong><span>R$ 54.000</span></div><div class="card"><strong>Ótica Visão</strong><span>R$ 7.900</span></div></div>
+                <div class="col"><b>Fechado</b><div class="card"><strong>Transportes Lima</strong><span>R$ 21.000</span></div></div>
+              </div>
+            </article>
+            <article class="tile t-erp" data-reveal>
+              <div>
+                <h3>Operação e financeiro</h3>
+                <p>Pedidos, estoque e contas conversando entre si. O fechamento do mês deixa de ser uma maratona.</p>
+              </div>
+              <div class="tile-art mini-bars" aria-hidden="true"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:63%"></i><i style="height:58%"></i><i style="height:76%"></i><i style="height:100%"></i></div>
+            </article>
+            <article class="tile t-auto" data-reveal>
+              <div>
+                <h3>Tarefas que se repetem</h3>
+                <p>O que alguém faz à mão todo dia passa a acontecer sozinho. Quando entra um pedido, por exemplo:</p>
+              </div>
+              <div class="tile-art mini-flow" aria-hidden="true">
+                <div><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Nota fiscal emitida<em>agora</em></div>
+                <div><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Estoque atualizado<em>agora</em></div>
+                <div><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Cliente avisado no WhatsApp<em>agora</em></div>
+                <div><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Boleto gerado<em>agora</em></div>
+              </div>
+            </article>
+            <article class="tile t-web" data-reveal>
+              <div>
+                <h3>Sites que trazem cliente</h3>
+                <p>Páginas rápidas, e quem preenche o formulário já aparece no seu sistema.</p>
+              </div>
+              <div class="tile-art mini-browser" aria-hidden="true">
+                <div class="bar"><i></i><i></i><i></i><span>suaempresa.com.br</span></div>
+                <div class="page"><div><b>O imóvel certo, com o financiamento certo.</b><u>Fazer simulação</u></div><div class="mb-form"><i></i><i></i><i></i></div></div>
+                <div class="toast"><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Novo contato: Marina Costa quer uma simulação</div>
+              </div>
+            </article>
+            <div class="support-row" data-reveal>
+              <div><h3>Depois da entrega</h3></div>
+              <p>O sistema continua mudando junto com a empresa. Quem atende você é quem escreveu o código.</p>
             </div>
           </div>
-          <div class="hero-visual" data-animate="fade-in" data-delay="2">
-            <div class="visual-wrapper">
-              <!-- Abstract shapes representing customization -->
-              <div class="shape shape-1"></div>
-              <div class="shape shape-2"></div>
-              <div class="shape shape-3"></div>
+        </div>
+      </section>
 
-              <!-- Floating cards -->
-              <div class="float-card card-stats">
-                <div class="card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>
-                  </svg>
+      <!-- Projetos -->
+      <section class="section" id="projetos" style="padding-top: 0">
+        <div class="wrap">
+          <div class="head">
+            <h2 data-reveal>Projetos.</h2>
+            <p data-reveal>Um dos sistemas que a gente construiu e que roda todo dia na operação do cliente.</p>
+          </div>
+          <article class="project" data-reveal>
+            <div class="project-text">
+              <h3>GM Financiamento</h3>
+              <p>A GM cuida do financiamento imobiliário dos clientes do começo ao fim, da análise de crédito à assinatura da escritura. Cada processo passa por muita gente: clientes, corretores, parceiros e bancos.</p>
+              <p>Construímos o sistema onde a equipe acompanha cada financiamento e conversa com os parceiros, e o site novo, que leva quem quer financiar direto para a simulação.</p>
+              <dl class="project-facts">
+                <div><dt>Entregamos</dt><dd>Sistema interno e site</dd></div>
+                <div><dt>No ar</dt><dd><a href="https://www.gmfinanciamento.com.br/">gmfinanciamento.com.br</a></dd></div>
+              </dl>
+              <figure class="project-quote">
+                <blockquote>“Antes, cada financiamento vivia numa planilha e num grupo de WhatsApp. Hoje o time e os parceiros acompanham o mesmo processo, do primeiro contato à escritura, e ninguém mais precisa perguntar em que pé está.”</blockquote>
+                <figcaption>Gabriel, CEO da GM Financiamento</figcaption>
+              </figure>
+            </div>
+            <div class="project-media stage">
+              <div class="shot">
+                <div class="frame" data-tilt>
+                  <div class="frame-inner"><img src="assets/images/cases/gm-crm.jpg" width="1600" height="806" loading="lazy" alt="Painel do sistema interno da GM Financiamento, com os números ocultados"></div>
                 </div>
-                <div class="card-content">
-                  <span class="card-value">Sob medida</span>
-                  <span class="card-label">Do seu jeito</span>
-                </div>
+                <div class="phone"><img src="assets/images/cases/gm-mobile.jpg" width="390" height="780" loading="lazy" alt="Site da GM Financiamento no celular"></div>
               </div>
+            </div>
+          </article>
+        </div>
+      </section>
 
-              <div class="float-card card-notification">
-                <div class="notif-dot"></div>
-                <span>Novo pedido recebido</span>
-              </div>
-
-              <div class="float-card card-tasks">
-                <span class="tasks-title">Automação</span>
-                <div class="tasks-bar">
-                  <div class="tasks-progress"></div>
-                </div>
-                <span class="tasks-status">Pedido aprovado automaticamente</span>
+      <!-- Eunomia -->
+      <section class="section eunomia" id="eunomia">
+        <div class="wrap">
+          <div class="eu-head">
+            <p class="eu-kicker" data-reveal>Além dos projetos sob medida, criamos produtos nossos. O primeiro é a Eunomia, que está em beta.</p>
+            <h2 data-reveal>Onde sua empresa pensa junto.</h2>
+            <p data-reveal>Cada pessoa trabalha com seus agentes de IA, o time vê o trabalho de todo mundo e as decisões guiam tudo. O nome vem do grego e quer dizer boa ordem.</p>
+            <div class="hero-actions" data-reveal>
+              <a class="btn btn-white" href="https://benck.tech/eunomia/">Conhecer a Eunomia
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></a>
+              <a class="btn btn-ghost" href="https://benck.tech/eunomia/#lista">Entrar na lista de espera</a>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="frame" data-tilt>
+              <div class="frame-inner eu-shot">
+                <img src="assets/images/eunomia/board.jpg" srcset="assets/images/eunomia/board.jpg 1x, assets/images/eunomia/board@2x.jpg 2x" width="1440" height="842" loading="lazy" alt="Quadro da Eunomia com notas da equipe, propostas de agentes de IA e uma decisão aprovada">
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    
-    </section>
-
-    <!-- Marquee Section -->
-    <section class="marquee-section">
-      <div class="marquee">
-        <div class="marquee-content">
-          <span>CRM Personalizado</span>
-          <span class="marquee-dot"></span>
-          <span>ERP Sob Medida</span>
-          <span class="marquee-dot"></span>
-          <span>Automação de Processos</span>
-          <span class="marquee-dot"></span>
-          <span>Suporte Dedicado</span>
-          <span class="marquee-dot"></span>
-          <span>CRM Personalizado</span>
-          <span class="marquee-dot"></span>
-          <span>ERP Sob Medida</span>
-          <span class="marquee-dot"></span>
-          <span>Automação de Processos</span>
-          <span class="marquee-dot"></span>
-          <span>Suporte Dedicado</span>
-          <span class="marquee-dot"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Problems Section -->
-    <section class="problems" id="problems">
-      <div class="container">
-        <div class="problems-header">
-          <span class="section-number">01</span>
-          <div class="section-intro">
-            <h2 data-animate="fade-up">
-              <span class="text-muted">Você reconhece</span>
-              <br />algum desses problemas?
-            </h2>
-            <p data-animate="fade-up" data-delay="1">
-              São as frustrações que ouvimos diariamente de empresas como a sua.
-            </p>
+          <div class="eu-points">
+            <div data-reveal><h3>Agentes para cada pessoa</h3><p>Cada um tem os seus agentes de IA trabalhando junto, dentro do mesmo quadro.</p></div>
+            <div data-reveal><h3>Trabalho à vista</h3><p>Todo mundo enxerga o que o time está fazendo, sem precisar perguntar.</p></div>
+            <div data-reveal><h3>Decisões que guiam</h3><p>O que o time decide fica registrado e orienta pessoas e agentes.</p></div>
           </div>
         </div>
+      </section>
 
-        <div class="problems-grid">
-          <article class="problem-card" data-animate="fade-up" data-delay="1">
-            <div class="problem-number">01</div>
-            <h3>Ferramentas desconectadas</h3>
-            <p>
-              "Usamos 5 aplicativos diferentes que não conversam entre si.
-              Vivemos copiando dados de um para outro."
-            </p>
-          </article>
-
-          <article class="problem-card" data-animate="fade-up" data-delay="2">
-            <div class="problem-number">02</div>
-            <h3>Software inflexível</h3>
-            <p>
-              "Nosso CRM nos obriga a trabalhar em volta das limitações dele,
-              em vez de apoiar como realmente operamos."
-            </p>
-          </article>
-
-          <article class="problem-card featured" data-animate="fade-up" data-delay="3">
-            <div class="problem-number">03</div>
-            <h3>Horas em trabalho manual</h3>
-            <p>
-              "Gastamos horas em entrada de dados e tarefas repetitivas
-              que deveriam ser automatizadas."
-            </p>
-            <div class="problem-visual">
-              <div class="clock-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 6v6l4 2"/>
-                </svg>
-              </div>
-            </div>
-          </article>
-
-          <article class="problem-card" data-animate="fade-up" data-delay="4">
-            <div class="problem-number">04</div>
-            <h3>Suporte genérico</h3>
-            <p>
-              "O suporte não conhece nosso negócio.
-              Somos apenas mais um ticket na fila."
-            </p>
-          </article>
-
-          <article class="problem-card" data-animate="fade-up" data-delay="5">
-            <div class="problem-number">05</div>
-            <h3>Pagando pelo que não usa</h3>
-            <p>
-              "Pagamos por recursos que nunca usamos,
-              enquanto faltam os que realmente precisamos."
-            </p>
-          </article>
-
-          <article class="problem-card" data-animate="fade-up" data-delay="6">
-            <div class="problem-number">06</div>
-            <h3>Relatórios limitados</h3>
-            <p>
-              "Precisamos de insights específicos, mas não conseguimos
-              extraí-los das ferramentas atuais."
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-      <div class="container">
-        <div class="services-header">
-          <span class="section-number light">02</span>
-          <h2 data-animate="fade-up">
-            Nossas<br />
-            <span class="text-green">soluções.</span>
-          </h2>
-        </div>
-
-        <div class="services-list">
-          <article class="service-item" data-animate="fade-up">
-            <div class="service-index">01</div>
-            <div class="service-content">
-              <h3>CRM Personalizado</h3>
-              <p>
-                Sistema de gestão de clientes construído em torno do seu processo
-                de vendas, não o contrário. Cada campo, cada fluxo, cada relatório
-                desenhado para como você realmente trabalha.
-              </p>
-              <ul class="service-tags">
-                <li>Pipeline customizado</li>
-                <li>Automações</li>
-                <li>Integrações</li>
-                <li>Mobile</li>
-              </ul>
-            </div>
-            <div class="service-visual">
-              <div class="service-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-item" data-animate="fade-up">
-            <div class="service-index">02</div>
-            <div class="service-content">
-              <h3>ERP Sob Medida</h3>
-              <p>
-                Planejamento de recursos empresariais que realmente combina com
-                suas operações. Elimine planilhas e sistemas que não conversam.
-              </p>
-              <ul class="service-tags">
-                <li>Estoque</li>
-                <li>Financeiro</li>
-                <li>RH</li>
-                <li>Produção</li>
-              </ul>
-            </div>
-            <div class="service-visual">
-              <div class="service-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-item" data-animate="fade-up">
-            <div class="service-index">03</div>
-            <div class="service-content">
-              <h3>Automação de Processos</h3>
-              <p>
-                Elimine trabalho manual e reduza erros automatizando tarefas
-                repetitivas. Mais tempo para o que realmente importa.
-              </p>
-              <ul class="service-tags">
-                <li>Workflows</li>
-                <li>Sincronização</li>
-                <li>Alertas</li>
-                <li>Documentos</li>
-              </ul>
-            </div>
-            <div class="service-visual">
-              <div class="service-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                </svg>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-item" data-animate="fade-up">
-            <div class="service-index">04</div>
-            <div class="service-content">
-              <h3>Suporte Contínuo</h3>
-              <p>
-                Somos parceiros, não apenas fornecedores. Seu sistema evolui
-                conforme seu negócio cresce, com suporte de quem construiu.
-              </p>
-              <ul class="service-tags">
-                <li>Dedicado</li>
-                <li>Evolução</li>
-                <li>Treinamento</li>
-                <li>Monitoramento</li>
-              </ul>
-            </div>
-            <div class="service-visual">
-              <div class="service-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                </svg>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits" id="benefits">
-      <div class="container">
-        <div class="benefits-layout">
-          <div class="benefits-sticky">
-            <span class="section-number">03</span>
-            <h2 data-animate="fade-up">
-              Por que a<br />
-              <span class="logo-inline">Benck.</span>
-            </h2>
-            <p class="benefits-lead" data-animate="fade-up" data-delay="1">
-              Não vendemos software de prateleira.
-              Construímos ferramentas que se moldam ao seu negócio.
-            </p>
+      <!-- Como trabalhamos -->
+      <section class="section" id="processo" style="padding-top: 0">
+        <div class="wrap">
+          <div class="head">
+            <h2 data-reveal>Como trabalhamos.</h2>
+            <p data-reveal>Da primeira conversa ao sistema rodando no dia a dia da sua empresa.</p>
           </div>
-
-          <div class="benefits-cards">
-            <article class="benefit-card" data-animate="fade-up">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5"/>
-                  <path d="M2 12l10 5 10-5"/>
-                </svg>
-              </div>
-              <h3>100% Personalização</h3>
-              <p>
-                Cada funcionalidade construída para suas necessidades específicas.
-                Seu negócio é único — seu software também.
-              </p>
-            </article>
-
-            <article class="benefit-card" data-animate="fade-up" data-delay="1">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-              <h3>Parceria Real</h3>
-              <p>
-                Não somos fornecedores distantes. Somos parceiros investidos
-                no seu sucesso, com suporte de pessoas que conhecem seu sistema.
-              </p>
-            </article>
-
-            <article class="benefit-card" data-animate="fade-up" data-delay="2">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M23 6l-9.5 9.5-5-5L1 18"/>
-                  <path d="M17 6h6v6"/>
-                </svg>
-              </div>
-              <h3>Escala com Você</h3>
-              <p>
-                Software que cresce junto com seu negócio.
-                Sem necessidade de trocar de sistema conforme você expande.
-              </p>
-            </article>
-
-            <article class="benefit-card" data-animate="fade-up" data-delay="3">
-              <div class="benefit-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-              </div>
-              <h3>Propriedade Total</h3>
-              <p>
-                A solução é sua. Sem dependência de fornecedor,
-                sem aumentos surpresa de preço.
-              </p>
-            </article>
-          </div>
+          <ol class="steps" id="steps">
+            <div class="steps-line" aria-hidden="true"><i></i></div>
+            <li class="step" data-reveal><div class="step-n" aria-hidden="true">1</div><h3>Conversa</h3><p>A gente entende como a empresa funciona hoje, onde o trabalho trava e o que precisa mudar.</p></li>
+            <li class="step" data-reveal><div class="step-n" aria-hidden="true">2</div><h3>Desenho</h3><p>Você vê as telas antes de qualquer código e ajusta até ficar do jeito que o time trabalha.</p></li>
+            <li class="step" data-reveal><div class="step-n" aria-hidden="true">3</div><h3>Construção</h3><p>Entregas curtas, com o sistema já rodando. Você testa cada parte antes da próxima.</p></li>
+            <li class="step" data-reveal><div class="step-n" aria-hidden="true">4</div><h3>Evolução</h3><p>Depois da entrega, o sistema continua crescendo junto com a empresa.</p></li>
+          </ol>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Process Section -->
-    <section class="process" id="process">
-      <div class="container">
-        <div class="process-header">
-          <span class="section-number light">04</span>
-          <h2 data-animate="fade-up">
-            Como<br />
-            <span class="text-green">trabalhamos.</span>
-          </h2>
-        </div>
-
-        <div class="process-timeline">
-          <div class="timeline-line"></div>
-
-          <article class="process-step" data-animate="fade-up">
-            <div class="step-marker">
-              <span>01</span>
-            </div>
-            <div class="step-content">
-              <h3>Descoberta</h3>
-              <p>
-                Mergulhamos no seu negócio para entender seus fluxos,
-                desafios e objetivos. Sem pressa — queremos fazer certo.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-step" data-animate="fade-up" data-delay="1">
-            <div class="step-marker">
-              <span>02</span>
-            </div>
-            <div class="step-content">
-              <h3>Design</h3>
-              <p>
-                Projetamos uma arquitetura de solução sob medida,
-                considerando suas necessidades específicas e crescimento futuro.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-step" data-animate="fade-up" data-delay="2">
-            <div class="step-marker">
-              <span>03</span>
-            </div>
-            <div class="step-content">
-              <h3>Construção</h3>
-              <p>
-                Desenvolvimento iterativo com demonstrações regulares.
-                Você acompanha cada etapa e valida antes de prosseguir.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-step" data-animate="fade-up" data-delay="3">
-            <div class="step-marker active">
-              <span>04</span>
-            </div>
-            <div class="step-content">
-              <h3>Evolução</h3>
-              <p>
-                Parceria contínua para refinar, melhorar e escalar sua solução
-                conforme seu negócio evolui.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-layout">
-          <div class="cta-content" data-animate="fade-up">
-            <h2>
-              Pronto para um software
-              <br />
-              <span class="text-dark">que funciona do seu jeito?</span>
-            </h2>
-            <p>
-              Preencha o formulário e vamos conversar sobre como uma solução
-              personalizada pode transformar suas operações.
-            </p>
-            <div class="cta-social">
-              <span>Ou fale diretamente:</span>
+      <!-- Contato -->
+      <section class="section cta" id="contato">
+        <div class="wrap cta-grid">
+          <div>
+            <h2>Vamos construir o seu?</h2>
+            <p class="cta-lead">Conte como a sua empresa funciona hoje e o que está emperrando. A gente responde para marcar uma conversa.</p>
+            <div class="cta-direct">
+              <span>Ou fale direto</span>
               <a href="#" data-whatsapp hidden>WhatsApp</a>
               <a href="mailto:hello@benck.tech">hello@benck.tech</a>
-              <a href="https://www.instagram.com/benck.tech/" target="_blank" rel="noopener">@benck.tech</a>
+              <a href="https://www.instagram.com/benck.tech/">@benck.tech</a>
             </div>
           </div>
-          <div class="cta-form-wrapper" data-animate="fade-up" data-delay="1">
-            <form class="contact-form" id="contactForm">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Nome</label>
-                  <input type="text" id="name" name="name" required placeholder="Seu nome" />
-                </div>
-                <div class="form-group">
-                  <label for="company">Empresa</label>
-                  <input type="text" id="company" name="company" placeholder="Nome da empresa" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="seu@email.com" />
-              </div>
-              <div class="form-group">
-                <label for="message">Como podemos ajudar?</label>
-                <textarea id="message" name="message" rows="4" required placeholder="Conte um pouco sobre seu projeto ou desafio..."></textarea>
-              </div>
-              <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <button type="submit" class="btn btn-dark btn-full">
-                <span>Enviar mensagem</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                </svg>
-              </button>
-              <p class="form-legal">
-                Ao enviar, você concorda com a nossa
-                <a href="privacidade.html">Política de Privacidade</a>.
-              </p>
-            </form>
+          <form class="form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="f-name">Nome<input id="f-name" name="name" type="text" placeholder="Seu nome" required></label>
+              <label for="f-company">Empresa<input id="f-company" name="company" type="text" placeholder="Nome da empresa"></label>
+            </div>
+            <label for="f-email">E-mail<input id="f-email" name="email" type="email" placeholder="seu@email.com" required></label>
+            <label for="f-message">O que vocês precisam resolver?<textarea id="f-message" name="message" placeholder="Por exemplo: hoje controlamos os pedidos numa planilha e sempre algo se perde." required></textarea></label>
+            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-green" type="submit">Enviar mensagem
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></button>
+            <p class="form-note" id="formNote" role="status"></p>
+            <p class="form-legal">Ao enviar, você concorda com a nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand"><a class="logo" href="#topo">Benck.</a><p>Software sob medida para sua empresa.</p></div>
+          <div class="footer-cols">
+            <div><h4>O que fazemos</h4><ul><li><a href="#servicos">Vendas e clientes</a></li><li><a href="#servicos">Operação e financeiro</a></li><li><a href="#servicos">Automação de tarefas</a></li><li><a href="#servicos">Sites</a></li></ul></div>
+            <div><h4>Produtos</h4><ul><li><a href="https://benck.tech/eunomia/">Eunomia</a></li><li><a href="https://benck.tech/eunomia/#lista">Lista de espera</a></li></ul></div>
+            <div><h4>Benck.</h4><ul><li><a href="#projetos">Projetos</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#contato">Contato</a></li></ul></div>
+            <div><h4>Contato</h4><ul><li><a href="#" data-whatsapp hidden>WhatsApp</a></li><li>hello@benck.tech</li><li><a href="https://www.instagram.com/benck.tech/">Instagram</a></li></ul></div>
           </div>
         </div>
-        <div class="cta-visual" aria-hidden="true">
-          <span class="cta-logo">Benck.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-main">
-          <div class="footer-brand">
-            <a href="#" class="logo">Benck.</a>
-            <p>
-              Software personalizado para quem quer parar de se adaptar
-              e começar a ter ferramentas que funcionam.
-            </p>
-          </div>
-
-          <div class="footer-nav">
-            <div class="footer-col">
-              <h4>Serviços</h4>
-              <ul>
-                <li><a href="#services">CRM Personalizado</a></li>
-                <li><a href="#services">ERP Sob Medida</a></li>
-                <li><a href="#services">Automação</a></li>
-                <li><a href="#services">Suporte</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Empresa</h4>
-              <ul>
-                <li><a href="#benefits">Por que Benck</a></li>
-                <li><a href="#process">Processo</a></li>
-                <li><a href="#contact">Contato</a></li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h4>Conecte-se</h4>
-              <ul>
-                <li><a href="#" data-whatsapp hidden>WhatsApp</a></li>
-                <li>
-                  <a href="https://www.instagram.com/benck.tech/" target="_blank" rel="noopener">
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:hello@benck.tech">Email</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
         <div class="footer-bottom">
-          <p>&copy; <span data-year>2026</span> Benck. CNPJ 61.182.321/0001-49. Todos os direitos reservados.</p>
+          <p>© <span data-year>2026</span> Benck. CNPJ 61.182.321/0001-49.</p>
           <div class="footer-legal">
             <a href="privacidade.html">Privacidade</a>
             <a href="termos.html">Termos</a>
@@ -635,8 +270,8 @@
       </svg>
     </a>
 
-    <!-- Scripts -->
-    <script src="assets/js/site.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/site.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>

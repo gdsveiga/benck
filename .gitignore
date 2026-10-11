@@ -1,1 +1,7 @@
 orcamentos/
+reports/
+
+# Arquivos locais: o deploy publica o repositório inteiro no GitHub Pages
+.DS_Store
+.claude/settings.local.json
+.vscode/
