@@ -304,6 +304,7 @@ body > nav .container {
 .mobile-menu.active .mobile-nav-links li:nth-child(3) { transition-delay: 0.2s; }
 .mobile-menu.active .mobile-nav-links li:nth-child(4) { transition-delay: 0.25s; }
 .mobile-menu.active .mobile-nav-links li:nth-child(5) { transition-delay: 0.3s; }
+.mobile-menu.active .mobile-nav-links li:nth-child(6) { transition-delay: 0.35s; }
 
 .mobile-nav-links a {
   font-family: var(--font-display);
@@ -1202,6 +1203,228 @@ body > nav .container {
 }
 
 /* ============================================
+   Eunomia Section
+   O ponto de "Benck." cresce e vira o mundo da Eunomia.
+   Cores e tipo da Eunomia: eunomia/apps/web/src/styles/tokens.css
+   ============================================ */
+.eunomia {
+  --eu-light: #fbf8f4;
+  --eu-studio: #efe9e1;
+  --eu-ink: #111214;
+  --eu-muted: #6e655e;
+  --eu-line: #e0d8ce;
+  --eu-signal: #e0561f;
+  --eu-signal-strong: #c94a17;
+  --eu-signal-strong-hover: #b23f12;
+  --eu-tint: #fbe3d6;
+  --eu-on-tint: #9a3412;
+
+  background: var(--black);
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.eunomia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.eunomia-header h2 {
+  color: var(--pure-white);
+}
+
+.eunomia-header p {
+  max-width: 380px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.eunomia-stage {
+  /* Raio do círculo; main.js anima de um ponto até aqui */
+  --r: max(1500px, 120vw);
+  --ring: 12px;
+  position: relative;
+}
+
+/* Sete anéis do verde da Benck ao laranja da Eunomia (interpolados em OKLCH) */
+.eunomia-orb {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% var(--r),
+    var(--eu-light) calc(var(--r) - var(--ring) * 7),
+    #e0561f calc(var(--r) - var(--ring) * 7 + 1px) calc(var(--r) - var(--ring) * 6),
+    #e36c00 calc(var(--r) - var(--ring) * 6 + 1px) calc(var(--r) - var(--ring) * 5),
+    #de8400 calc(var(--r) - var(--ring) * 5 + 1px) calc(var(--r) - var(--ring) * 4),
+    #d19d00 calc(var(--r) - var(--ring) * 4 + 1px) calc(var(--r) - var(--ring) * 3),
+    #bbb500 calc(var(--r) - var(--ring) * 3 + 1px) calc(var(--r) - var(--ring) * 2),
+    #9bcc1d calc(var(--r) - var(--ring) * 2 + 1px) calc(var(--r) - var(--ring)),
+    var(--benck-green) calc(var(--r) - var(--ring) + 1px) var(--r),
+    transparent calc(var(--r) + 1px)
+  );
+}
+
+.eunomia-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 110px;
+  font-family: 'Instrument Sans', sans-serif;
+  color: var(--eu-ink);
+}
+
+.eunomia-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eunomia-wordmark {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.eunomia-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--eu-tint);
+  color: var(--eu-on-tint);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.eunomia-content h3 {
+  margin-top: 18px;
+  max-width: 13ch;
+  font-family: inherit;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: var(--eu-ink);
+  text-wrap: balance;
+}
+
+.eunomia-content p {
+  margin-top: 18px;
+  max-width: 540px;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--eu-muted);
+}
+
+.eunomia-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.eunomia-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.eunomia-btn:focus-visible {
+  outline: 2px solid var(--eu-signal);
+  outline-offset: 3px;
+}
+
+.eunomia-btn-primary {
+  padding-right: 8px;
+  background: var(--eu-signal-strong);
+  color: var(--pure-white);
+}
+
+.eunomia-btn-primary:hover {
+  background: var(--eu-signal-strong-hover);
+}
+
+.eunomia-btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.eunomia-btn-light {
+  background: var(--pure-white);
+  box-shadow: inset 0 0 0 1px var(--eu-line);
+  color: var(--eu-ink);
+}
+
+.eunomia-btn-light:hover {
+  background: var(--eu-studio);
+}
+
+.eunomia-shot {
+  width: 100%;
+  max-width: 1040px;
+  height: clamp(260px, 38vw, 480px);
+  margin-top: 48px;
+  padding: 24px 24px 0;
+  border-radius: 22px 22px 0 0;
+  background: radial-gradient(90% 80% at 50% 45%, var(--pure-white), var(--eu-studio));
+  overflow: hidden;
+}
+
+.eunomia-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 2px 6px 10px -4px rgba(0, 0, 0, 0.25);
+}
+
+/* Pontos de entrada: menu e rodapé */
+.eunomia-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #e0561f;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
+
+.nav-links .link-eunomia::after {
+  background: #e0561f;
+}
+
+.mobile-nav-links .link-eunomia .eunomia-dot {
+  width: 12px;
+  height: 12px;
+  margin-right: 12px;
+}
+
+.mobile-nav-links .link-eunomia:hover,
+.footer-col .link-eunomia:hover {
+  color: #e0561f;
+}
+
+/* ============================================
    CTA Section
    ============================================ */
 .cta {
@@ -1433,7 +1656,7 @@ footer {
 
 .footer-nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-xl);
 }
 
@@ -1597,6 +1820,12 @@ footer {
     gap: var(--space-md);
   }
 
+  .eunomia-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
   .service-item {
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -1647,6 +1876,19 @@ footer {
 
   .timeline-line {
     left: 20px;
+  }
+
+  .eunomia-stage {
+    --ring: 8px;
+  }
+
+  .eunomia-content {
+    padding-top: 84px;
+  }
+
+  .eunomia-shot {
+    padding: 12px 12px 0;
+    border-radius: 16px 16px 0 0;
   }
 
   .step-marker {

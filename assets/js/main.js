@@ -206,6 +206,41 @@
   }
 
   // ============================================
+  // Eunomia - O ponto de "Benck." cresce com o scroll
+  // ============================================
+
+  const eunomiaStage = document.querySelector('.eunomia-stage');
+
+  if (eunomiaStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    let lastRadius = null;
+
+    const updateOrb = () => {
+      ticking = false;
+      const visibleDepth = window.innerHeight - eunomiaStage.getBoundingClientRect().top;
+      const finalRadius = Math.max(1500, eunomiaStage.clientWidth * 1.2);
+      // Cresce mais rápido do que a seção aparece, então o conteúdo sempre surge sobre o fundo claro
+      const radius = Math.round(Math.min(finalRadius, Math.max(10, 10 + visibleDepth * 1.8)));
+
+      if (radius !== lastRadius) {
+        eunomiaStage.style.setProperty('--r', `${radius}px`);
+        lastRadius = radius;
+      }
+    };
+
+    const requestOrbUpdate = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateOrb);
+      }
+    };
+
+    window.addEventListener('scroll', requestOrbUpdate, { passive: true });
+    window.addEventListener('resize', requestOrbUpdate);
+    updateOrb();
+  }
+
+  // ============================================
   // Marquee - Pause on hover
   // ============================================
 
