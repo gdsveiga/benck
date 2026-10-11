@@ -208,7 +208,9 @@ p { margin: 0; }
 .project-text p { margin-top: 18px; color: var(--muted); }
 .project-facts { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .project-facts dt { font-size: 14px; color: var(--muted); }
-.project-facts dd { margin: 4px 0 0; font-weight: 600; }
+.project-facts > div { min-width: 0; }
+.project-facts dd { margin: 4px 0 0; font-weight: 600; overflow-wrap: anywhere; }
+@media (max-width: 520px) { .project-facts { grid-template-columns: minmax(0, 1fr); } }
 .project-facts a { text-underline-offset: 4px; }
 .project-quote { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--line); }
 .project-quote blockquote { margin: 0; font-size: 19px; line-height: 1.5; color: var(--ink); }
