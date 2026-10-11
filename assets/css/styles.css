@@ -265,6 +265,8 @@ p { margin: 0; }
 .form-note.is-error { color: #ff9b8a; }
 .form .btn:disabled { opacity: 0.6; cursor: progress; transform: none; }
 .honeypot { position: absolute; left: -9999px; }
+.form-legal { font-size: 13px; color: var(--muted); text-align: center; }
+.form-legal a { color: var(--ink); text-underline-offset: 3px; }
 
 /* ---------- Footer ---------- */
 .footer { padding-block: 88px 40px; }
@@ -277,7 +279,37 @@ p { margin: 0; }
 .footer-cols ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: var(--muted); font-size: 15px; }
 .footer-cols a { text-decoration: none; }
 .footer-cols a:hover { color: var(--ink); }
-.footer-bottom { padding-top: 28px; color: var(--muted); font-size: 14px; }
+.footer-bottom { padding-top: 28px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { text-decoration: none; }
+.footer-legal a:hover { color: var(--ink); }
+
+/* ---------- WhatsApp flutuante (aparece quando o número é configurado em site.js) ---------- */
+.whatsapp-float {
+  position: fixed; z-index: 45;
+  right: clamp(16px, 3vw, 32px); bottom: calc(clamp(16px, 3vw, 32px) + env(safe-area-inset-bottom, 0px));
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s var(--ease);
+}
+.whatsapp-float:hover { transform: translateY(-3px); }
+.whatsapp-float svg { width: 30px; height: 30px; }
+
+/* ---------- Páginas legais (privacidade e termos) ---------- */
+.legal { padding-block: calc(76px + clamp(56px, 8vw, 104px)) clamp(64px, 8vw, 112px); }
+.legal .wrap { max-width: calc(820px + var(--gutter) * 2); }
+.legal h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); font-weight: 800; }
+.legal-updated { margin-top: 16px; color: var(--muted); font-size: 15px; }
+.legal h2 { margin: 48px 0 14px; font-size: clamp(1.35rem, 2.6vw, 1.75rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+.legal p, .legal li { color: var(--muted); font-size: 17px; line-height: 1.7; }
+.legal p + p { margin-top: 14px; }
+.legal ul { margin: 14px 0 0; padding-left: 1.25rem; }
+.legal li + li { margin-top: 8px; }
+.legal strong { color: var(--ink); font-weight: 600; }
+.legal a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
+.legal-footer { padding-block: 32px 40px; border-top: 1px solid var(--line); }
+.legal-footer .footer-bottom { padding-top: 0; }
 
 /* ---------- Reveal ---------- */
 .js [data-reveal] { opacity: 0.001; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
