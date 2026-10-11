@@ -4,7 +4,22 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch",
-      "Skill(frontend-design:frontend-design)"
+      "Skill(frontend-design:frontend-design)",
+      "Bash(which chromium *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.pdf\" \"file:///Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --prefer-css-page-size --print-to-pdf=\"/Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.pdf\" \"file:///Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --no-margins --paper-width=8.27 --paper-height=11.69 --print-to-pdf=\"/Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.pdf\" \"file:///Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-pdf-header-footer --prefer-css-page-size --paper-width=8.27 --paper-height=11.69 --print-to-pdf=\"/Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.pdf\" \"file:///Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/tmp/test-orcamento.pdf\" \"file:///Users/guilhermeveiga/Documents/projetos-guilherme/benck/orcamentos/2026-001-painel-podemos/2026-001-painel-podemos.html\")",
+      "Bash(awk ' *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/tmp/test-cover-only.pdf\" \"file:///tmp/test-cover-only.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/tmp/test-half.pdf\" \"file:///tmp/test-half.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/tmp/test-1to9.pdf\" \"file:///tmp/test-1to9.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/tmp/test-1to7.pdf\" \"file:///tmp/test-1to7.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=\"/tmp/test-1to8.pdf\" \"file:///tmp/test-1to8.html\")",
+      "Bash(awk '/<!-- 9. Documentação/,/<!-- 10\\\\. Investigação/' /Users/guilhermeveiga/Documents/projetos-guilherme/benck/reports/2026-001-labvoto-frontend/2026-001-labvoto-frontend.html)",
+      "Read(//Users/guilhermeveiga/Documents/projetos-guilherme/**)",
+      "Read(//Users/guilhermeveiga/Documents/**)"
     ],
     "deny": [],
     "ask": []
