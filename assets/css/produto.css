@@ -1,5 +1,5 @@
 /* ============================================
-   BENCK. - Páginas de produto (Balcão, Largada, Em Dia)
+   BENCK. - Páginas de produto (Atrium, Runway, Vigil)
    Usa os tokens e componentes de styles.css; aqui só o que é próprio dessas páginas.
    ============================================ */
 .p-hero { padding-block: calc(76px + clamp(56px, 8vw, 112px)) clamp(64px, 8vw, 120px); position: relative; overflow: hidden; }
