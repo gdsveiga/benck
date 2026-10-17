@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Cada cliente ganha um portal com a sua marca: pedidos, documentos, aprovações e o andamento de tudo, num link só." />
+    <meta name="theme-color" content="#F6F1EA" />
+    <title>Porch | Portal do cliente com a sua marca</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="canonical" href="https://benck.tech/porch/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Benck." />
+    <meta property="og:url" content="https://benck.tech/porch/" />
+    <meta property="og:title" content="Porch | Portal do cliente com a sua marca" />
+    <meta property="og:description" content="Pedidos, documentos, aprovações e o andamento de tudo, num link só, com a sua marca." />
+    <meta property="og:image" content="https://benck.tech/assets/images/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script>document.documentElement.classList.add('js');</script>
+    <style>
+      :root {
+        --cream: #f6f1ea; --paper: #fffdf9; --sand: #ece4d8; --ink: #1c1a17; --muted: #6b645a;
+        --line: #e0d6c7; --terra: #d9583b; --terra-dark: #b8442a; --sage: #5f8a6b; --gold: #d9a23b;
+        --serif: "Fraunces", Georgia, serif; --sans: "Inter", system-ui, -apple-system, sans-serif;
+        --gutter: clamp(16px, 4vw, 48px); --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; overflow-x: clip; }
+      body { margin: 0; background: var(--cream); color: var(--ink); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+      a { color: inherit; }
+      h1, h2, h3, p { margin: 0; }
+      h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
+      h3 { font-weight: 600; font-size: 19px; letter-spacing: -0.01em; }
+      :focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
+      .wrap { max-width: 1200px; margin: 0 auto; padding-inline: var(--gutter); }
+      .btn { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border-radius: 14px; font: 600 16px/1 var(--sans); text-decoration: none; border: 0; cursor: pointer; transition: background .2s, transform .3s var(--ease); }
+      .btn:hover { transform: translateY(-2px); }
+      .btn-primary { background: var(--terra); color: #fff; }
+      .btn-primary:hover { background: var(--terra-dark); }
+      .btn-plain { color: var(--ink); background: transparent; border: 1px solid var(--line); }
+
+      /* nav */
+      .nav { padding: 20px 0; }
+      .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+      .brand b { font: 600 26px/1 var(--serif); letter-spacing: -0.02em; }
+      .brand span { font-size: 13px; color: var(--muted); }
+      .nav .btn { height: 44px; font-size: 15px; }
+
+      /* hero */
+      .hero { padding: clamp(32px, 6vw, 72px) 0 clamp(64px, 8vw, 104px); }
+      .hero .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: center; }
+      .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--terra); margin-bottom: 20px; }
+      .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.6rem); }
+      .hero h1 em { font-style: italic; color: var(--terra); }
+      .hero p.lead { margin-top: 24px; font-size: clamp(17px, 1.5vw, 20px); color: var(--muted); max-width: 32rem; }
+      .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+      .phone-stage { position: relative; display: flex; justify-content: center; padding: 24px 0; }
+      .phone-stage::before { content: ""; position: absolute; inset: 8% 6%; border-radius: 40px; background: var(--sand); transform: rotate(-4deg); }
+      .phone { position: relative; width: min(330px, 100%); background: var(--paper); border-radius: 36px; padding: 14px; box-shadow: 0 40px 80px -30px rgba(60, 40, 20, .35), 0 0 0 1px var(--line); }
+      .ph-top { display: flex; align-items: center; gap: 10px; padding: 10px 8px 16px; border-bottom: 1px solid var(--line); }
+      .ph-logo { width: 34px; height: 34px; border-radius: 10px; background: #23413a; color: #fff; display: grid; place-items: center; font: 600 15px var(--serif); }
+      .ph-top b { display: block; font-size: 14px; }
+      .ph-top small { color: var(--muted); font-size: 12px; }
+      .ph-progress { margin: 16px 8px 6px; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; }
+      .bar { height: 6px; border-radius: 99px; background: var(--sand); margin: 0 8px 16px; overflow: hidden; }
+      .bar i { display: block; height: 100%; width: 60%; background: #23413a; border-radius: inherit; }
+      .task { display: flex; align-items: center; gap: 12px; padding: 12px 10px; border-radius: 14px; font-size: 14px; }
+      .task + .task { margin-top: 4px; }
+      .task.todo { background: #fff4ec; box-shadow: inset 0 0 0 1px #f3d6c4; }
+      .task .ic { flex: none; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; }
+      .task.done .ic { background: var(--sage); }
+      .task.todo .ic { border: 2px solid var(--terra); }
+      .task.done span { color: var(--muted); text-decoration: line-through; }
+      .task em { margin-left: auto; font-style: normal; font-size: 11px; font-weight: 600; color: var(--terra); white-space: nowrap; }
+      .ph-cta { margin: 14px 8px 6px; height: 44px; border-radius: 12px; background: #23413a; color: #fff; display: grid; place-items: center; font-size: 14px; font-weight: 600; }
+
+      /* before / after */
+      .section { padding: clamp(72px, 9vw, 120px) 0; }
+      .sec-head { max-width: 40rem; margin-bottom: clamp(40px, 5vw, 64px); }
+      .sec-head h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+      .sec-head p { margin-top: 16px; color: var(--muted); font-size: 18px; }
+      .ba { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 20px; }
+      .ba-col { border-radius: 28px; padding: clamp(24px, 3vw, 36px); }
+      .ba-col h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 20px; }
+      .before { background: var(--sand); }
+      .before h3 { color: var(--muted); }
+      .after { background: #23413a; color: #f3efe7; }
+      .after h3 { color: #bcd6c4; }
+      .chat { display: flex; flex-direction: column; gap: 8px; }
+      .bubble { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: 14.5px; background: var(--paper); }
+      .bubble.me { align-self: flex-end; background: #dcf2d3; }
+      .bubble small { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
+      .after ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+      .after li { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 16px; background: rgba(255,255,255,.07); font-size: 15px; }
+      .after li b { display: block; font-weight: 600; }
+      .after li span { color: #bcd6c4; font-size: 14px; }
+      .after li .ic { flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: #bcd6c4; display: grid; place-items: center; }
+
+      /* features */
+      .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 40px 32px; }
+      .feature .num { font: 400 48px/1 var(--serif); color: var(--terra); }
+      .feature h3 { margin-top: 16px; }
+      .feature p { margin-top: 8px; color: var(--muted); }
+
+      /* white label */
+      .brandbox { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 40px; align-items: center; background: var(--paper); border-radius: 32px; padding: clamp(28px, 4vw, 56px); box-shadow: 0 0 0 1px var(--line); }
+      .brandbox h2 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
+      .brandbox p { margin-top: 16px; color: var(--muted); }
+      .swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .sw { border-radius: 18px; padding: 16px; color: #fff; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; font-size: 13px; }
+      .sw b { font: 600 18px/1.1 var(--serif); }
+      .sw i { display: block; height: 8px; border-radius: 99px; background: rgba(255,255,255,.35); margin-top: 6px; }
+      .who { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+      .who span { padding: 8px 14px; border-radius: 99px; background: var(--sand); font-size: 14px; }
+
+      /* price + form */
+      .signup { background: var(--ink); color: #f3efe7; border-radius: 36px; padding: clamp(28px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 48px; }
+      .signup h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); }
+      .signup p { margin-top: 18px; color: #b9b1a5; max-width: 28rem; }
+      .price { margin-top: 36px; padding-top: 24px; border-top: 1px solid #3a352f; }
+      .price b { font: 400 clamp(2.4rem, 4vw, 3.2rem)/1 var(--serif); color: #fff; }
+      .price small { color: #b9b1a5; font-size: 15px; }
+      .form { display: flex; flex-direction: column; gap: 16px; }
+      .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 16px; }
+      .form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; color: #d9d2c7; }
+      .form input, .form textarea, .form select { font: 400 16px/1.4 var(--sans); color: #fff; background: #2a2622; border: 1px solid #3a352f; border-radius: 12px; padding: 13px 14px; }
+      .form input::placeholder, .form textarea::placeholder { color: #8a8278; }
+      .form input:focus, .form textarea:focus, .form select:focus { outline: none; border-color: var(--terra); }
+      .form textarea { min-height: 100px; resize: vertical; }
+      .form .btn { justify-content: center; margin-top: 4px; }
+      .form .btn:disabled { opacity: .6; cursor: progress; transform: none; }
+      .form-note { font-size: 14px; color: #bcd6c4; min-height: 1.4em; }
+      .form-note.is-error { color: #ffab96; }
+      .form-legal { font-size: 13px; color: #8a8278; text-align: center; }
+      .honeypot { position: absolute; left: -9999px; }
+      footer { padding: 40px 0; font-size: 14px; color: var(--muted); }
+      footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+      footer nav { display: flex; gap: 20px; }
+      footer a { text-decoration: none; }
+      .js [data-reveal] { opacity: .001; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+      .js [data-reveal].in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .js [data-reveal] { opacity: 1; transform: none; } }
+      @media (max-width: 520px) { .nav .btn { display: none; } .swatches { grid-template-columns: 1fr; } .sw { min-height: 0; } }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="#"><b>Porch</b><span>por Benck.</span></a>
+        <a class="btn btn-primary" href="#lista">Quero testar</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <div>
+            <span class="eyebrow">Portal do cliente · em breve</span>
+            <h1>Seus clientes, <em>sem</em> grupo de WhatsApp.</h1>
+            <p class="lead">O Porch dá a cada cliente um portal com a sua marca. Ele vê o que falta, envia documentos, aprova entregas e acompanha tudo num link só.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#lista">Quero testar primeiro</a>
+              <a class="btn btn-plain" href="#antes-depois">Ver a diferença</a>
+            </div>
+          </div>
+          <div class="phone-stage" role="img" aria-label="Portal do cliente no celular, com a marca da agência e as tarefas pendentes">
+            <div class="phone">
+              <div class="ph-top"><div class="ph-logo">N</div><div><b>Agência Norte</b><small>Portal da Padaria Aurora</small></div></div>
+              <div class="ph-progress"><span>Campanha de dezembro</span><span>3 de 5</span></div>
+              <div class="bar"><i></i></div>
+              <div class="task done"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Briefing enviado</span></div>
+              <div class="task done"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Fotos dos produtos</span></div>
+              <div class="task done"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span>Contrato assinado</span></div>
+              <div class="task todo"><span class="ic"></span>Aprovar arte do post<em>hoje</em></div>
+              <div class="task todo"><span class="ic"></span>Enviar logo em alta<em>sex</em></div>
+              <div class="ph-cta">Ver arte para aprovar</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="antes-depois" style="padding-top: 0">
+        <div class="wrap">
+          <div class="sec-head" data-reveal>
+            <h2>O mesmo cliente, duas semanas diferentes.</h2>
+            <p>Arquivo perdido em conversa, cliente perguntando “em que pé está?” e aprovação que ninguém lembrou de cobrar. Ou tudo num lugar só.</p>
+          </div>
+          <div class="ba">
+            <div class="ba-col before" data-reveal>
+              <h3>Hoje, no WhatsApp</h3>
+              <div class="chat">
+                <div class="bubble">Oi! Mandei o logo ontem, recebeu?<small>Cliente · 09:12</small></div>
+                <div class="bubble me">Não achei aqui, pode reenviar? 🙏<small>Você · 11:40</small></div>
+                <div class="bubble">Em que pé está a campanha?<small>Cliente · 15:03</small></div>
+                <div class="bubble me">Esperando vocês aprovarem a arte que mandei semana passada…<small>Você · 17:58</small></div>
+                <div class="bubble">Qual arte? 😅<small>Cliente · 18:20</small></div>
+              </div>
+            </div>
+            <div class="ba-col after" data-reveal>
+              <h3>Com o Porch</h3>
+              <ul>
+                <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#23413a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Logo recebido</b><span>Salvo na pasta do cliente, com versão e data.</span></div></li>
+                <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#23413a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Status sempre à vista</b><span>O cliente abre o link e vê em que etapa está, sem perguntar.</span></div></li>
+                <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#23413a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Aprovação com um toque</b><span>A arte aparece no portal. O Porch lembra o cliente até ele aprovar.</span></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0">
+        <div class="wrap">
+          <div class="features">
+            <div class="feature" data-reveal><div class="num">01</div><h3>Checklists por cliente</h3><p>Documentos, aprovações e tarefas com prazo, a partir de modelos seus. Nada de começar do zero a cada cliente novo.</p></div>
+            <div class="feature" data-reveal><div class="num">02</div><h3>Lembretes que cobram por você</h3><p>Avisos automáticos por e-mail antes e depois do prazo. Seu time para de correr atrás.</p></div>
+            <div class="feature" data-reveal><div class="num">03</div><h3>Resumo com IA</h3><p>Antes da reunião, um resumo de cada cliente: o que chegou, o que falta e o que está travado.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0">
+        <div class="wrap">
+          <div class="brandbox" data-reveal>
+            <div>
+              <h2>O cliente vê a sua marca, não a nossa.</h2>
+              <p>Logo, cores e domínio da sua empresa. Para o cliente, o portal é seu. Agências e consultorias podem até revender.</p>
+              <div class="who"><span>Agências</span><span>Consultorias</span><span>Contabilidade</span><span>Advocacia</span><span>Arquitetura</span></div>
+            </div>
+            <div class="swatches" aria-hidden="true">
+              <div class="sw" style="background:#23413a"><b>Agência Norte</b><div><i></i><i style="width:60%"></i></div></div>
+              <div class="sw" style="background:#3b3f8f"><b>Lume Consultoria</b><div><i></i><i style="width:40%"></i></div></div>
+              <div class="sw" style="background:#a1422b"><b>Costa Contábil</b><div><i></i><i style="width:75%"></i></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="lista" style="padding-top: 0">
+        <div class="wrap">
+          <div class="signup">
+            <div>
+              <h2>Teste antes de todo mundo.</h2>
+              <p>Estamos abrindo o Porch para poucas empresas primeiro. Deixe seu contato e a gente mostra o produto e ouve como vocês trabalham hoje.</p>
+              <div class="price"><b>R$ 149</b> <small>/mês, a partir de. Preço previsto, por empresa, com a sua marca no portal.</small></div>
+            </div>
+            <form class="form" id="waitlistForm" data-product="Porch" novalidate>
+              <div class="form-row">
+                <label for="f-name">Nome<input id="f-name" name="name" type="text" placeholder="Seu nome" required></label>
+                <label for="f-company">Empresa<input id="f-company" name="company" type="text" placeholder="Nome da empresa"></label>
+              </div>
+              <label for="f-email">E-mail<input id="f-email" name="email" type="email" placeholder="seu@email.com" required></label>
+              <label for="f-size">Quantos clientes ativos vocês atendem?<select id="f-size" name="size" data-label="Clientes ativos"><option value="">Escolha uma opção</option><option>Até 10</option><option>11 a 50</option><option>51 a 200</option><option>Mais de 200</option></select></label>
+              <label for="f-today">Como vocês fazem isso hoje?<textarea id="f-today" name="today" placeholder="Por exemplo: pedimos os documentos por WhatsApp e controlamos numa planilha."></textarea></label>
+              <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button class="btn btn-primary" type="submit">Entrar na lista</button>
+              <p class="form-note" id="formNote" role="status"></p>
+              <p class="form-legal">Ao enviar, você concorda com a nossa <a href="../privacidade.html">Política de Privacidade</a>.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>Porch é um produto da <a href="../index.html">Benck.</a> · CNPJ 61.182.321/0001-49</p>
+        <nav><a href="../privacidade.html">Privacidade</a><a href="../termos.html">Termos</a></nav>
+      </div>
+    </footer>
+
+    <script src="../assets/js/site.js" defer></script>
+    <script src="../assets/js/lista-espera.js" defer></script>
+  </body>
+</html>
