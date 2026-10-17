@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Receba os documentos de fornecedores e terceiros, leia a validade com IA e cobre a renovação antes de vencer." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Cleared | Documentos de fornecedores sempre válidos</title>
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="canonical" href="https://benck.tech/cleared/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Benck." />
+    <meta property="og:url" content="https://benck.tech/cleared/" />
+    <meta property="og:title" content="Cleared | Documentos de fornecedores sempre válidos" />
+    <meta property="og:description" content="A IA lê a validade de cada documento e cobra o fornecedor antes de vencer." />
+    <meta property="og:image" content="https://benck.tech/assets/images/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>document.documentElement.classList.add('js');</script>
+    <style>
+      :root {
+        --bg: #ffffff; --soft: #f3f5f4; --ink: #0f1f1a; --muted: #5d6b66; --line: #dde3e0;
+        --green: #0e7a4f; --green-soft: #e3f3eb; --amber: #b87503; --amber-soft: #fdf1dc; --red: #c23b2c; --red-soft: #fbe6e3;
+        --hl: #fff2a8;
+        --font: "IBM Plex Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+        --gutter: clamp(16px, 4vw, 48px); --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; overflow-x: clip; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+      a { color: inherit; }
+      h1, h2, h3, p { margin: 0; }
+      h1, h2 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.06; text-wrap: balance; }
+      :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 2px; }
+      .wrap { max-width: 1200px; margin: 0 auto; padding-inline: var(--gutter); }
+      .mono { font-family: var(--mono); }
+      .btn { display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 22px; border-radius: 4px; font: 600 16px/1 var(--font); text-decoration: none; border: 0; cursor: pointer; transition: background .2s; }
+      .btn-green { background: var(--green); color: #fff; }
+      .btn-green:hover { background: #0b6641; }
+      .btn-ghost { box-shadow: inset 0 0 0 1px var(--ink); color: var(--ink); }
+      .btn-ghost:hover { background: var(--soft); }
+
+      .nav { border-bottom: 1px solid var(--line); }
+      .nav .wrap { height: 68px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+      .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 21px; letter-spacing: -0.02em; }
+      .brand small { font-weight: 400; font-size: 13px; color: var(--muted); letter-spacing: 0; }
+      .seal { width: 26px; height: 26px; border-radius: 50%; background: var(--green); display: grid; place-items: center; }
+      .nav .btn { height: 40px; font-size: 15px; }
+
+      .hero { padding: clamp(48px, 8vw, 104px) 0 clamp(64px, 8vw, 104px); background: linear-gradient(180deg, var(--soft), var(--bg)); }
+      .hero .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: center; }
+      .kicker { font: 500 13px var(--mono); color: var(--green); letter-spacing: .02em; }
+      .hero h1 { margin-top: 18px; font-size: clamp(2.5rem, 5vw, 4.25rem); }
+      .hero p { margin-top: 22px; font-size: clamp(17px, 1.5vw, 20px); color: var(--muted); max-width: 32rem; }
+      .actions { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+      /* document scan */
+      .scan { position: relative; padding: 20px 20px 70px; }
+      .doc { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 28px 28px 32px; box-shadow: 0 24px 60px -24px rgba(15, 31, 26, .25); font-size: 13px; color: var(--muted); max-width: 440px; margin-left: auto; }
+      .doc h4 { margin: 0 0 4px; font: 600 14px var(--font); color: var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+      .doc .sub { font-size: 12px; margin-bottom: 18px; }
+      .doc .ln { height: 7px; border-radius: 3px; background: var(--soft); margin-top: 9px; }
+      .doc .field { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; color: var(--ink); }
+      .doc mark { background: var(--hl); padding: 1px 4px; border-radius: 2px; box-shadow: 0 0 0 2px #f1d94b; }
+      .beam { position: absolute; left: 0; right: 0; height: 2px; top: 30%; background: linear-gradient(90deg, transparent, var(--green), transparent); opacity: .7; animation: beam 3.2s ease-in-out infinite; }
+      @keyframes beam { 0%, 100% { top: 12%; } 50% { top: 88%; } }
+      .extract { position: absolute; left: 0; bottom: 0; width: min(300px, 80%); background: var(--ink); color: #fff; border-radius: 6px; padding: 16px 18px; font: 400 13px/1.7 var(--mono); box-shadow: 0 20px 40px -16px rgba(0,0,0,.45); }
+      .extract { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0 18px; }
+      .extract dt { color: #9fb3ab; }
+      .extract dd { margin: 0; color: #8fe0b9; font-weight: 500; }
+
+      .section { padding: clamp(72px, 9vw, 120px) 0; }
+      .sh { max-width: 44rem; margin-bottom: clamp(36px, 5vw, 56px); }
+      .sh h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); }
+      .sh p { margin-top: 14px; color: var(--muted); }
+
+      /* risks */
+      .risks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); border-top: 2px solid var(--ink); }
+      .risk { padding: 28px 28px 28px 0; }
+      .risk + .risk { border-left: 1px solid var(--line); padding-left: 28px; }
+      .risk .n { font: 500 13px var(--mono); color: var(--red); }
+      .risk h3 { margin-top: 10px; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
+      .risk p { margin-top: 8px; color: var(--muted); }
+      @media (max-width: 640px) { .risk + .risk { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } }
+
+      /* compliance table */
+      .panel { border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; }
+      .panel-hd { display: flex; flex-wrap: wrap; gap: 12px 32px; padding: 20px 24px; border-bottom: 1px solid var(--line); background: var(--soft); min-width: 640px; }
+      .kpi b { display: block; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; }
+      .kpi span { font-size: 13px; color: var(--muted); }
+      table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 15px; }
+      th { text-align: left; font: 500 12px var(--mono); text-transform: uppercase; color: var(--muted); padding: 14px 24px; border-bottom: 1px solid var(--line); }
+      td { padding: 14px 24px; border-bottom: 1px solid var(--line); }
+      tr:last-child td { border-bottom: 0; }
+      td.mono { font-size: 14px; }
+      .st { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 3px; font-size: 13px; font-weight: 500; }
+      .st::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+      .ok { background: var(--green-soft); color: var(--green); }
+      .soon { background: var(--amber-soft); color: var(--amber); }
+      .exp { background: var(--red-soft); color: var(--red); }
+      .wait { background: var(--soft); color: var(--muted); }
+
+      /* steps */
+      .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 32px; counter-reset: s; }
+      .steps li { counter-increment: s; padding-top: 20px; border-top: 1px solid var(--line); }
+      .steps li::before { content: "0" counter(s); font: 500 13px var(--mono); color: var(--green); }
+      .steps h3 { margin-top: 10px; font-size: 20px; font-weight: 600; }
+      .steps p { margin-top: 8px; color: var(--muted); }
+
+      .final { background: var(--ink); color: #eef3f1; }
+      .final .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 48px; }
+      .final h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+      .final .wrap > div > p { margin-top: 18px; color: #a9bab4; max-width: 28rem; }
+      .price { margin-top: 32px; padding: 20px 0; border-top: 1px solid #2b3c36; border-bottom: 1px solid #2b3c36; }
+      .price b { font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
+      .price span { display: block; font-size: 14px; color: #a9bab4; margin-top: 4px; }
+      .who { margin-top: 24px; font-size: 14px; color: #a9bab4; }
+      .who b { color: #eef3f1; font-weight: 500; }
+      .form { background: #fff; color: var(--ink); border-radius: 6px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px; }
+      .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 16px; }
+      .form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500; }
+      .form input, .form textarea, .form select { font: 400 16px/1.4 var(--font); color: var(--ink); background: #fff; border: 1px solid #c7d0cc; border-radius: 4px; padding: 12px 14px; }
+      .form input:focus, .form textarea:focus, .form select:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+      .form textarea { min-height: 100px; resize: vertical; }
+      .form .btn { justify-content: center; }
+      .form .btn:disabled { opacity: .6; cursor: progress; }
+      .form-note { font-size: 14px; color: var(--green); min-height: 1.4em; }
+      .form-note.is-error { color: var(--red); }
+      .form-legal { font-size: 13px; color: var(--muted); text-align: center; }
+      .honeypot { position: absolute; left: -9999px; }
+      footer { background: var(--ink); color: #a9bab4; border-top: 1px solid #2b3c36; padding: 28px 0; font-size: 14px; }
+      footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
+      footer nav { display: flex; gap: 20px; }
+      footer a { text-decoration: none; }
+      .js [data-reveal] { opacity: .001; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+      .js [data-reveal].in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } .js [data-reveal] { opacity: 1; transform: none; } }
+      @media (max-width: 480px) { .nav .btn { display: none; } .scan { padding: 0 0 150px; } .extract { width: 100%; } }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="#"><span class="seal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Cleared <small>por Benck.</small></a>
+        <a class="btn btn-green" href="#lista">Entrar na lista</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <div>
+            <span class="kicker">// documentos de fornecedores e terceiros · em breve</span>
+            <h1>Nenhum fornecedor trabalha com documento vencido.</h1>
+            <p>O Cleared recebe os documentos dos seus fornecedores, lê a validade com IA e cobra a renovação antes de vencer. Você só libera quem está em dia.</p>
+            <div class="actions">
+              <a class="btn btn-green" href="#lista">Quero testar primeiro</a>
+              <a class="btn btn-ghost" href="#painel">Ver o painel</a>
+            </div>
+          </div>
+          <div class="scan" role="img" aria-label="Certidão sendo lida pela IA, que extrai tipo, fornecedor e data de validade">
+            <div class="doc">
+              <div class="beam" aria-hidden="true"></div>
+              <h4>Certidão negativa de débitos</h4>
+              <div class="sub">Documento emitido eletronicamente</div>
+              <div class="field">Contribuinte: <mark>Andaimes Forte Ltda.</mark></div>
+              <div class="ln"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:92%"></div>
+              <div class="field">Válida até: <mark>14/03/2027</mark></div>
+              <div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:55%"></div>
+            </div>
+            <dl class="extract">
+              <dt>tipo</dt><dd>CND federal</dd>
+              <dt>fornecedor</dt><dd>Andaimes Forte</dd>
+              <dt>validade</dt><dd>14/03/2027</dd>
+              <dt>lembrete</dt><dd>12/02/2027</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0">
+        <div class="wrap">
+          <div class="sh" data-reveal><h2>Quando ninguém olha a validade, a conta chega.</h2></div>
+          <div class="risks" data-reveal>
+            <div class="risk"><span class="n">01 · auditoria</span><h3>Vencido há meses</h3><p>O seguro ou a certidão venceu, e só a auditoria percebeu.</p></div>
+            <div class="risk"><span class="n">02 · responsabilidade</span><h3>Risco que vira seu</h3><p>Terceiro irregular trabalhando na sua obra ou planta pode virar multa ou processo para a sua empresa.</p></div>
+            <div class="risk"><span class="n">03 · financeiro</span><h3>Pagamento travado</h3><p>A nota não sai porque falta um documento, e começa a corrida de e-mails.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="painel" style="padding-top: 0">
+        <div class="wrap">
+          <div class="sh" data-reveal><h2>Quem está em dia, quem não está.</h2><p>Um painel com todos os fornecedores e documentos. Antes de vencer, o Cleared cobra o fornecedor sozinho.</p></div>
+          <div class="panel" data-reveal>
+            <div class="panel-hd">
+              <div class="kpi"><b style="color: var(--green)">42</b><span>fornecedores em dia</span></div>
+              <div class="kpi"><b style="color: var(--amber)">3</b><span>vencem em 30 dias</span></div>
+              <div class="kpi"><b style="color: var(--red)">1</b><span>bloqueado</span></div>
+            </div>
+            <table>
+              <thead><tr><th>Fornecedor</th><th>Documento</th><th>Validade</th><th>Situação</th></tr></thead>
+              <tbody>
+                <tr><td>Transportes Rocha</td><td>Seguro de carga</td><td class="mono">22/03/2027</td><td><span class="st ok">Em dia</span></td></tr>
+                <tr><td>Eletro Sul</td><td>ASO dos técnicos</td><td class="mono">26/10/2026</td><td><span class="st soon">Vence em 9 dias</span></td></tr>
+                <tr><td>Andaimes Forte</td><td>Laudo técnico</td><td class="mono">15/10/2026</td><td><span class="st exp">Vencido</span></td></tr>
+                <tr><td>Limpeza Brilho</td><td>Certidão negativa</td><td class="mono">08/01/2027</td><td><span class="st ok">Em dia</span></td></tr>
+                <tr><td>Gráfica Ponto</td><td>Contrato social</td><td class="mono">-</td><td><span class="st wait">Aguardando envio</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0">
+        <div class="wrap">
+          <div class="sh" data-reveal><h2>Como funciona.</h2></div>
+          <ol class="steps">
+            <li data-reveal><h3>Defina as exigências</h3><p>Monte a lista de documentos por tipo de fornecedor: certidões, seguros, laudos, contratos.</p></li>
+            <li data-reveal><h3>O fornecedor envia</h3><p>Cada fornecedor recebe um link, vê o que falta e envia. Sem e-mail perdido, sem planilha.</p></li>
+            <li data-reveal><h3>A IA lê e o Cleared cobra</h3><p>A IA identifica o documento e a validade. Lembretes saem sozinhos antes de vencer.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section final" id="lista">
+        <div class="wrap">
+          <div>
+            <h2>Teste o Cleared antes de todo mundo.</h2>
+            <p>Estamos abrindo para poucas empresas primeiro. Deixe seu contato e a gente mostra o produto e ouve como vocês controlam isso hoje.</p>
+            <div class="price"><b>R$ 400 <small style="font-size:16px;font-weight:400;color:#a9bab4">/mês</small></b><span>A partir de. Preço previsto, por empresa, conforme o número de fornecedores e terceiros.</span></div>
+            <p class="who"><b>Para:</b> construtoras, facilities, indústria, logística, hospitais e clínicas.</p>
+          </div>
+          <form class="form" id="waitlistForm" data-product="Cleared" novalidate>
+            <div class="form-row">
+              <label for="f-name">Nome<input id="f-name" name="name" type="text" placeholder="Seu nome" required></label>
+              <label for="f-company">Empresa<input id="f-company" name="company" type="text" placeholder="Nome da empresa"></label>
+            </div>
+            <label for="f-email">E-mail<input id="f-email" name="email" type="email" placeholder="seu@email.com" required></label>
+            <label for="f-size">Quantos fornecedores ou terceiros vocês acompanham?<select id="f-size" name="size" data-label="Fornecedores"><option value="">Escolha uma opção</option><option>Até 20</option><option>21 a 100</option><option>101 a 500</option><option>Mais de 500</option></select></label>
+            <label for="f-today">Como vocês fazem isso hoje?<textarea id="f-today" name="today" placeholder="Por exemplo: pedimos por e-mail e controlamos as validades numa planilha."></textarea></label>
+            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-green" type="submit">Entrar na lista</button>
+            <p class="form-note" id="formNote" role="status"></p>
+            <p class="form-legal">Ao enviar, você concorda com a nossa <a href="../privacidade.html">Política de Privacidade</a>.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>Cleared é um produto da <a href="../index.html">Benck.</a> · CNPJ 61.182.321/0001-49</p>
+        <nav><a href="../privacidade.html">Privacidade</a><a href="../termos.html">Termos</a></nav>
+      </div>
+    </footer>
+
+    <script src="../assets/js/site.js" defer></script>
+    <script src="../assets/js/lista-espera.js" defer></script>
+  </body>
+</html>
